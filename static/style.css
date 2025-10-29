@@ -1,51 +1,716 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
 :root {
   --verde-oscuro: #044f3b;
   --verde-medio: #028a72;
-  --verde-lima: #1fa237;
   --verde-agua: #75beb5;
-  --amarillo: #bb900e;
   --blanco: #ffffff;
 }
 
+/* -------- GENERAL -------- */
 body {
-  font-family: 'Avenir Next', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
   background-color: var(--blanco);
   color: var(--verde-oscuro);
-  margin: 0;
-  padding: 0;
 }
 
+/* -------- NAVBAR -------- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--blanco);
   padding: 1em 3em;
-  background-color: var(--verde-oscuro);
-  color: var(--blanco);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.navbar a {
-  color: var(--blanco);
-  margin-left: 20px;
-  text-decoration: none;
+/* IZQUIERDA */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
 }
 
-.hero {
-  text-align: center;
-  padding: 4em 1em;
-  background-color: var(--verde-agua);
+.logo {
+  height: 48px;
+}
+
+/* BOTÓN TIENDA */
+.main-btn {
+  border: 1.5px solid rgba(117, 190, 181, 0.8);
+  padding: 0.6em 1.4em;
+  border-radius: 2px;
+  color: rgba(117, 190, 181, 0.9);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.main-btn:hover {
+  background-color: rgba(117, 190, 181, 0.15);
+  transition: 0.3s;
+}
+
+/* CENTRO */
+.nav-center a {
+  margin: 0 15px;
+  font-weight: 500;
+  color: rgba(117, 190, 181, 0.9);
+  letter-spacing: 0.5px;
+}
+
+.nav-center a:hover {
+  color: var(--verde-medio);
+  transition: 0.3s;
+}
+
+/* DERECHA (iconos) */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.icon-box {
+  background-color: rgba(117, 190, 181, 0.2);
+  padding: 0.4em 1em;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-box a {
+  color: var(--verde-medio);
+  font-size: 1.2em;
+  position: relative;
+}
+
+.icon-box a:hover {
   color: var(--verde-oscuro);
 }
 
-.btn {
-  background-color: var(--verde-medio);
-  color: var(--blanco);
-  padding: 0.8em 1.5em;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
+/* CONTADOR CARRITO */
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.6em;
+  padding: 2px 5px;
 }
 
-.btn:hover {
-  background-color: var(--verde-lima);
+/* Ajuste responsive */
+@media (max-width: 768px) {
+  .nav-center {
+    display: none;
+  }
+  .main-btn {
+    padding: 0.5em 1em;
+  }
+}
+
+/* Productos */
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+  padding: 2em;
+}
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1em;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.card h3 { color: var(--verde-medio); margin: 0.5em 0; }
+
+/* Formulario */
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  text-align: left;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: inherit;
+}
+.contact-form button {
+  display: block;
+  margin-top: 1em;
+}
+
+/* Mensajes flash */
+.flash-container {
+  text-align: center;
+  margin: 1em auto;
+}
+.flash {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+}
+.flash-success { background-color: var(--verde-medio); }
+.flash-info { background-color: var(--verde-agua); }
+
+
+/* Hero carousel */
+.hero-carousel { position: relative; overflow: hidden; }
+.slides { display: flex; transition: transform 1s ease; }
+.slide { min-width: 100%; position: relative; }
+.slide img { width: 100%; height: 90vh; object-fit: cover; filter: brightness(0.7); }
+.hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--blanco); text-align: center; }
+.hero-text h1 { font-size: 2.5em; margin-bottom: 0.3em; }
+.btn { background-color: var(--verde-medio); color: var(--blanco); padding: 0.8em 1.6em; border-radius: 30px; text-decoration: none; font-weight: bold; }
+.btn:hover { background-color: var(--verde-agua); }
+
+/* Sections */
+section { padding: 4em 2em; text-align: center; }
+.verde-fondo { background-color: #eaf5f3; }
+h2 { color: var(--verde-medio); margin-bottom: 0.5em; }
+blockquote { font-style: italic; color: var(--verde-oscuro); margin: 1.5em auto; max-width: 700px; }
+footer { background-color: var(--verde-oscuro); color: white; padding: 1em; text-align: center; }
+
+/* ====== Catálogo de Materas ====== */
+.catalogo {
+  text-align: center;
+  padding: 2em 0;
+}
+
+.catalogo h2 {
+  color: #044f3b;
+  margin-bottom: 1em;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2em;
+  padding: 2em;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.img-box {
+  width: 100%;
+  height: 220px; /* ← forma rectangular controlada */
+  overflow: hidden;
+  border-bottom: 4px solid #2f9c89; /* línea decorativa con tu verde */
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ← recorte elegante sin deformación */
+  object-position: center; /* centra la maceta */
+  transition: transform 0.4s ease;
+}
+
+.img-box img:hover {
+  transform: scale(1.05);
+}
+
+.card h3 {
+  color: #044f3b;
+  margin: 12px 0 5px;
+  font-size: 1.2em;
+}
+
+.card p {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card .btn {
+  background-color: #028a72;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+  margin-bottom: 15px;
+}
+
+.card .btn:hover {
+  background-color: #04b387;
+}
+.auth {
+  max-width: 400px;
+  margin: 4em auto;
+  background: #fff;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.auth h2 {
+  color: #044f3b;
+  margin-bottom: 1em;
+}
+
+.auth-form label {
+  display: block;
+  margin-top: 10px;
+  text-align: left;
+  color: #333;
+  font-weight: 600;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.auth-form .btn {
+  margin-top: 15px;
+  width: 100%;
+  background-color: #028a72;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-form .btn:hover {
+  background-color: #04b387;
+}
+
+/* -------- BOTONES LOGIN / REGISTRO / LOGOUT -------- */
+.btn-login, .btn-register, .btn-logout {
+  display: inline-block;
+  padding: 0.5em 1.2em;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 0 0.3em;
+}
+
+/* Botón LOGIN */
+.btn-login {
+  background-color: var(--verde-medio);
+  color: var(--blanco);
+  border: 2px solid transparent;
+}
+
+.btn-login:hover {
+  background-color: transparent;
+  color: var(--verde-medio);
+  border: 2px solid var(--verde-medio);
+  box-shadow: 0 0 8px rgba(2,138,114,0.4);
+}
+
+/* Botón REGISTRO */
+.btn-register {
+  background-color: var(--verde-agua);
+  color: var(--blanco);
+  border: 2px solid transparent;
+}
+
+.btn-register:hover {
+  background-color: transparent;
+  color: var(--verde-agua);
+  border: 2px solid var(--verde-agua);
+  box-shadow: 0 0 8px rgba(117,190,181,0.5);
+}
+
+/* Botón LOGOUT */
+.btn-logout {
+  background-color: transparent;
+  color: var(--verde-oscuro);
+  border: 2px solid var(--verde-oscuro);
+}
+
+.btn-logout:hover {
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
+  box-shadow: 0 0 8px rgba(4,79,59,0.4);
+}
+
+/* Texto de bienvenida en navbar */
+.welcome-text {
+  color: var(--verde-oscuro);
+  font-weight: 600;
+  margin-right: 10px;
+  font-size: 0.95em;
+}
+
+/* Reajuste visual en la parte derecha del navbar */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-box {
+  background-color: rgba(117, 190, 181, 0.15);
+  padding: 0.4em 1em;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Mejoramos los íconos */
+.icon-box a {
+  color: var(--verde-medio);
+  font-size: 1.25em;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icon-box a:hover {
+  color: var(--verde-oscuro);
+  transform: scale(1.1);
+}
+
+/* Indicador carrito */
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--verde-medio);
+  color: var(--blanco);
+  border-radius: 50%;
+  font-size: 0.65em;
+  padding: 2px 6px;
+  font-weight: 600;
+}
+
+/* ====== Carrito ====== */
+.cart-section {
+  text-align: center;
+  padding: 3em 2em;
+}
+
+.cart-section h2 {
+  color: var(--verde-oscuro);
+  margin-bottom: 1em;
+}
+
+.cart-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em;
+}
+
+.cart-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  width: 320px;
+  transition: transform 0.3s ease;
+}
+
+.cart-card:hover {
+  transform: translateY(-5px);
+}
+
+.cart-card img {
+  width: 120px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.cart-info {
+  padding: 1em;
+  text-align: left;
+}
+
+.cart-total {
+  margin-top: 2em;
+}
+
+.cart-empty {
+  margin-top: 3em;
+  color: #555;
+}
+
+.cart-empty i {
+  font-size: 4em;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.cart-empty .btn {
+  background-color: var(--verde-medio);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 18px;
+  text-decoration: none;
+  margin-top: 1em;
+  display: inline-block;
+}
+/* ===== ICONOS ===== */
+.icon-box a {
+  color: #000; /* negro sólido */
+  font-size: 1.4em;
+  position: relative;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.icon-box a:hover {
+  color: var(--verde-medio);
+  transform: scale(1.15);
+}
+
+/* ===== CARRITO ===== */
+.cart-section {
+  text-align: center;
+  padding: 3em 2em;
+}
+
+.cart-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5em;
+}
+
+.cart-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  width: 320px;
+  transition: transform 0.3s ease;
+}
+
+.cart-card:hover {
+  transform: translateY(-5px);
+}
+
+.cart-card img {
+  width: 120px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.cart-info {
+  padding: 1em;
+  text-align: left;
+}
+
+.cart-total {
+  margin-top: 2em;
+}
+
+.cart-empty {
+  margin-top: 3em;
+  color: #555;
+}
+
+.cart-empty i {
+  font-size: 4em;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.cart-empty .btn {
+  background-color: var(--verde-medio);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 18px;
+  text-decoration: none;
+  margin-top: 1em;
+  display: inline-block;
+}
+
+.cart-empty .btn:hover {
+  background-color: var(--verde-agua);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.3); }
+  60% { transform: scale(0.9); }
+}
+.bounce {
+  animation: bounce 0.7s ease;
+}
+.cart-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  width: 90%;
+  max-width: 600px;
+  margin: 10px auto;
+  padding-right: 1em;
+}
+
+.cart-card img {
+  width: 120px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+.cart-info {
+  flex: 1;
+  text-align: left;
+  padding: 0.5em 1em;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn {
+  color: #c0392b;
+  font-size: 1.3em;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #e74c3c;
+  transform: scale(1.2);
+}
+
+/* ===== Botón de eliminar (basurita) ===== */
+.cart-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
+}
+
+.delete-btn {
+  color: #c0392b;
+  font-size: 1.5em;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #e74c3c;
+  transform: scale(1.2);
+}
+.card {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card .detalles {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  overflow: hidden;
+  max-height: 0;
+  text-align: left;
+  padding: 0 1em;
+}
+
+.card.active {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card.active .detalles {
+  display: block;
+  opacity: 1;
+  max-height: 200px;
+  margin-top: 10px;
+}
+
+.card.active img {
+  filter: brightness(0.9);
+}
+
+.card .detalles p {
+  margin: 5px 0;
+  color: #333;
+  font-size: 0.9em;
+}
+
+.card .detalles .btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: var(--verde-medio);
+  color: white;
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-decoration: none;
+}
+
+.card .detalles .btn:hover {
+  background-color: var(--verde-agua);
+}
+
+/* ===== EFECTO DE EXPANSIÓN EN MATERAS ===== */
+.card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.expanded {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-info {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #444;
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.card.expanded .card-info {
+  display: block;
 }

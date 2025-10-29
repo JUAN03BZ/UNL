@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Carrito | Ecoa{% endblock %}
+{% block content %}
+<section class="cart-section">
+  <h2>Tu Carrito</h2>
+
+  {% if cart_items %}
+    <div class="cart-items">
+      {% for item in cart_items %}
+        <div class="cart-card">
+          <img src="{{ url_for('static', filename='images/' + item['imagen']) }}" alt="{{ item['nombre'] }}">
+          <div class="cart-info">
+            <h3>{{ item['nombre'] }}</h3>
+            <p>Precio: ${{ "%.2f"|format(item['precio']) }}</p>
+            <p>Cantidad: {{ item['cantidad'] }}</p>
+          </div>
+          <div class="cart-actions">
+            <!-- 🔴 Basurita visible y funcional -->
+            <a href="{{ url_for('remove_from_cart', producto_id=item['id']) }}" class="delete-btn" title="Eliminar">
+              <i class="fa-solid fa-trash"></i>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="cart-total">
+      <h3>Total: ${{ "%.2f"|format(total) }}</h3>
+    </div>
+
+  {% else %}
+    <div class="cart-empty">
+      <i class="fa-solid fa-face-frown"></i>
+      <p>Tu carrito está vacío 😢</p>
+      <a href="{{ url_for('materas') }}" class="btn">Explora nuestras materas</a>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

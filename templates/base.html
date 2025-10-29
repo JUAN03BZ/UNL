@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Ecoa{% endblock %}</title>
+
+  <!-- ✅ CSS principal -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- ✅ Íconos Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Fuente Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ✅ NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Ecoa" class="logo">
+      <a href="/" class="main-btn">TIENDA EN LÍNEA</a>
+    </div>
+
+    <div class="nav-center">
+      <a href="{{ url_for('materas') }}">Materas</a>
+      <a href="{{ url_for('about') }}">Acerca de Ecoa</a>
+      <a href="{{ url_for('contacto') }}">Contacto</a>
+    </div>
+
+    <div class="nav-right">
+
+      <!-- 👇 Esta parte se actualiza según la sesión -->
+      {% if 'user_id' in session %}
+        <!-- Usuario logueado -->
+        <span class="welcome-text">👋 Hola, {{ session['username'] }}</span>
+        <a href="{{ url_for('logout') }}" class="btn-logout">Cerrar sesión</a>
+      {% else %}
+        <!-- Usuario invitado -->
+        <a href="{{ url_for('login') }}" class="btn-login">Login</a>
+        <a href="{{ url_for('register') }}" class="btn-register">Registrar</a>
+      {% endif %}
+
+      <!-- Íconos -->
+      <div class="icon-box">
+        <a href="#"><i class="fa-regular fa-user"></i></a>
+        <a href="#"><i class="fa-regular fa-heart"></i></a>
+        <a href="{{ url_for('cart') }}">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count">{{ cart_count }}</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ CONTENIDO PRINCIPAL -->
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-container">
+          {% for category, message in messages %}
+            <div class="flash flash-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ✅ FOOTER -->
+  <footer>
+    <p>© 2025 Ecoa | Innovación ecológica</p>
+  </footer>
+
+  <!-- ✅ SCRIPT PRINCIPAL -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

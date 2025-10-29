@@ -1,0 +1,32 @@
+<header class="navbar">
+  <div class="nav-left">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Ecoa" class="logo">
+    <a href="/" class="main-btn">TIENDA EN LÍNEA</a>
+  </div>
+
+  <div class="nav-center">
+    <a href="{{ url_for('materas') }}">Materas</a>
+    <a href="{{ url_for('about') }}">Acerca de Ecoa</a>
+    <a href="{{ url_for('contacto') }}">Contacto</a>
+  </div>
+
+  <div class="nav-right">
+    {% if not session.get('usuario_id') %}
+      <a href="{{ url_for('login') }}" class="btn-login">Login</a>
+      <a href="{{ url_for('register') }}" class="btn-register">Registro</a>
+    {% else %}
+      <span class="welcome-text">👋 {{ session['usuario_nombre'] }}</span>
+      <a href="{{ url_for('logout') }}" class="btn-logout">Salir</a>
+    {% endif %}
+
+    <div class="icon-box">
+      <a href="#"><i class="fa-regular fa-heart"></i></a>
+      <a href="{{ url_for('cart') }}">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count">{{ cart_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script src="https://kit.fontawesome.com/a2b25b6b43.js" crossorigin="anonymous"></script>
