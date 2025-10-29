@@ -1,0 +1,51 @@
+:root {
+  --verde-oscuro: #044f3b;
+  --verde-medio: #028a72;
+  --verde-lima: #1fa237;
+  --verde-agua: #75beb5;
+  --amarillo: #bb900e;
+  --blanco: #ffffff;
+}
+
+body {
+  font-family: 'Avenir Next', sans-serif;
+  background-color: var(--blanco);
+  color: var(--verde-oscuro);
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 3em;
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
+}
+
+.navbar a {
+  color: var(--blanco);
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 4em 1em;
+  background-color: var(--verde-agua);
+  color: var(--verde-oscuro);
+}
+
+.btn {
+  background-color: var(--verde-medio);
+  color: var(--blanco);
+  padding: 0.8em 1.5em;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: var(--verde-lima);
+}
