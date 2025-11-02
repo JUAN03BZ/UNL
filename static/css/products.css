@@ -1,12 +1,29 @@
+/* static/css/products.css */
+
 .products-intro {
     text-align: center;
     margin-bottom: 2rem;
+    padding: 0 20px;
+}
+
+.products-intro h2 {
+    color: var(--primary); /* Verde oliva oscuro */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.products-intro p {
+    color: var(--text-light); /* Gris oscuro */
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
+    padding: 0 20px 60px; /* Padding inferior para separar del footer */
 }
 
 .product-card {
@@ -15,6 +32,7 @@
     overflow: hidden;
     background: white;
     transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .product-card:hover {
@@ -25,7 +43,32 @@
 .product-card img {
     width: 100%;
     height: 220px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    border-bottom: 2px solid var(--accent); /* Línea decorativa en turquesa claro */
+    background: #f5f5f5; /* Fondo gris claro si no hay imagen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999; /* Texto gris si no hay imagen */
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.product-card img::before {
+    content: "🖼️ Imagen del producto";
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 0.8rem;
+    color: #999;
+    opacity: 0.7;
+}
+
+.product-card img[src]::before {
+    display: none;
 }
 
 .product-info {
@@ -35,11 +78,18 @@
 .product-info h3 {
     font-size: 1.3rem;
     margin-bottom: 0.6rem;
+    color: var(--primary); /* Verde oliva oscuro */
+}
+
+.product-info p {
+    color: var(--text-light); /* Gris claro */
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
 }
 
 .price {
     font-weight: bold;
-    color: var(--accent-gold);
+    color: var(--secondary); /* Terracota */
     font-size: 1.2rem;
     margin: 0.5rem 0;
 }
@@ -48,4 +98,50 @@
     margin-top: 1rem;
     display: flex;
     gap: 0.8rem;
+    justify-content: center; /* Centrado de botones */
+}
+
+/* === BOTONES DEL MISMO TAMAÑO Y ESTILO === */
+.btn-details,
+.btn-add {
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    flex: 1; /* Ambos ocupan el mismo espacio */
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 100px; /* Ancho mínimo para que sean iguales */
+    height: 40px; /* Altura fija para que sean iguales */
+    line-height: 20px; /* Alinea el texto verticalmente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-details {
+    background-color: white;
+    color: var(--primary); /* Verde oliva oscuro */
+    border: 1px solid var(--primary);
+}
+
+.btn-details:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-add {
+    background-color: var(--primary); /* Verde oliva oscuro */
+    color: white;
+    border: none;
+}
+
+.btn-add:hover {
+    background-color: var(--secondary); /* Terracota */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }

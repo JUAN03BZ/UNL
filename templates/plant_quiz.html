@@ -1,0 +1,18 @@
+<!-- templates/plant_quiz.html -->
+{% extends "base.html" %}
+
+{% block title %}Encuentra tu Planta Perfecta - Ecoa{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/perfect_plant.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="quiz-hero">
+        <div class="container">
+            <h1 class="quiz-title">¿Listo para encontrar tu planta perfecta?</h1>
+            <p class="quiz-subtitle">Responde unas preguntas y te recomendaremos la matera ideal según tu estilo y espacio.</p>
+            <a href="{{ url_for('perfect_plant') }}" class="btn-quiz">Haz el Quiz →</a>
+        </div>
+    </section>
+{% endblock %}

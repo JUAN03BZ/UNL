@@ -1,82 +1,107 @@
+<!-- templates/about.html -->
 {% extends "base.html" %}
-{% block title %}Acerca de Ecoa - Innovación y Sostenibilidad{% endblock %}
+
+{% block title %}Acerca de - Ecoa{% endblock %}
+
+{% block styles %}
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para íconos profesionales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
 {% block content %}
+    <!-- HERO SECTION: FONDO VERDE OSCURO, TEXTO BLANCO -->
+    <section class="about-hero-dark">
+        <div class="container">
+            <h1 class="about-title">Acerca de Ecoa</h1>
+            <p class="about-subtitle">Innovación y sostenibilidad en cada maceta</p>
+        </div>
+    </section>
 
-<section class="about-hero">
-    <div class="container">
-        <h1>Acerca de Ecoa</h1>
-        <p class="hero-subtitle">Innovación y sostenibilidad en cada maceta</p>
-    </div>
-</section>
-
-<section class="about-content">
-    <div class="container">
-        <div class="about-intro">
-            <h2>¿Qué es Ecoa?</h2>
-            <p class="lead">
-                Ecoa es un emprendimiento innovador dedicado a la fabricación de <strong>macetas expandibles elaboradas a base de madera reciclada</strong>, ofreciendo una alternativa ecológica y funcional para espacios reducidos en zonas urbanas.
+    <!-- ¿Qué es Ecoa? -->
+    <section class="about-section fade-in">
+        <div class="container">
+            <h2 class="section-title">¿Qué es Ecoa?</h2>
+            <p class="about-text">
+                Ecoa es un emprendimiento innovador dedicado a la fabricación de macetas expandibles elaboradas a base de madera reciclada, ofreciendo una alternativa ecológica y funcional para espacios reducidos en zonas urbanas.
             </p>
         </div>
+    </section>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🌿</div>
-                <h3>Propuesta de Valor Única</h3>
-                <p>Ecoa representa la fusión perfecta entre <strong>innovación y sostenibilidad ambiental</strong>. Nuestro producto estrella consiste en una maceta compuesta por anillos que se expanden y encajan entre sí, permitiendo que la estructura se adapte al crecimiento de la planta sin necesidad de trasplantes.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🔍</div>
-                <h3>Origen del Nombre</h3>
-                <p>El nombre "Ecoa" surge de la combinación de dos conceptos fundamentales:</p>
-                <ul>
-                    <li><strong>"Eco"</strong> de ecológico</li>
-                    <li><strong>"a"</strong> de adaptable</li>
-                </ul>
-                <p>Reflejando así la esencia del emprendimiento: productos ecológicos que se adaptan a las necesidades de las plantas y los espacios urbanos.</p>
-            </div>
+    <!-- Propuesta de Valor Única -->
+    <section class="about-section bg-light fade-in">
+        <div class="container">
+            <h2 class="section-title">🌿 Propuesta de Valor Única</h2>
+            <p class="about-text">
+                Ecoa representa la fusión perfecta entre innovación y sostenibilidad ambiental. Nuestro producto estrella consiste en una maceta compuesta por anillos que se expanden y encajan entre sí, permitiendo que la estructura se adapte al crecimiento de la planta sin necesidad de trasplantes.
+            </p>
         </div>
+    </section>
 
-        <div class="benefits-section">
-            <h2>Beneficios Diferenciadores</h2>
+    <!-- Origen del Nombre -->
+    <section class="about-section fade-in">
+        <div class="container">
+            <h2 class="section-title">🔍 Origen del Nombre</h2>
+            <p class="about-text">El nombre "Ecoa" surge de la combinación de dos conceptos fundamentales:</p>
+            <ul class="name-breakdown">
+                <li><strong>"Eco"</strong> de ecológico</li>
+                <li><strong>"a"</strong> de adaptable</li>
+            </ul>
+            <p class="about-text">
+                Reflejando así la esencia del emprendimiento: productos ecológicos que se adaptan a las necesidades de las plantas y los espacios urbanos.
+            </p>
+        </div>
+    </section>
+
+    <!-- Beneficios Diferenciadores -->
+    <section class="about-section bg-light fade-in">
+        <div class="container">
+            <h2 class="section-title">Beneficios Diferenciadores</h2>
             <div class="benefits-grid">
-                <div class="benefit-item">
-                    <span class="benefit-icon">🌱</span>
-                    <h4>Para la Planta</h4>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Para la Planta</h3>
                     <p>Elimina el estrés y maltrato causado por los trasplantes tradicionales</p>
                 </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">💰</span>
-                    <h4>Para el Consumidor</h4>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-coins"></i></div>
+                    <h3>Para el Consumidor</h3>
                     <p>Ahorro económico al evitar la compra constante de nuevas macetas y herramientas</p>
                 </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">🌎</span>
-                    <h4>Para el Medio Ambiente</h4>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>Para el Medio Ambiente</h3>
                     <p>Reutilización de desechos de madera y reducción de residuos contaminantes</p>
                 </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">🏙️</span>
-                    <h4>Para Espacios Urbanos</h4>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-city"></i></div>
+                    <h3>Para Espacios Urbanos</h3>
                     <p>Optimización de espacios reducidos mediante diseño funcional</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="commitment-section">
-            <div class="commitment-content">
-                <h2>Compromiso Ambiental</h2>
-                <p>Ecoa se fundamenta en principios de <strong>economía circular y responsabilidad social empresarial</strong>, transformando desechos de madera en productos de valor que promueven prácticas de jardinería responsables y contribuyen al cuidado del planeta.</p>
-                
-                <div class="slogan">
-                    <h3>"Eleva, cultiva y repite"</h3>
-                    <p>Este eslogan encapsula perfectamente la filosofía del emprendimiento: un producto reutilizable que crece junto con la planta, fomentando un ciclo continuo de cultivo responsable y compromiso ambiental.</p>
-                </div>
-            </div>
+    <!-- Compromiso Ambiental -->
+    <section class="about-section fade-in">
+        <div class="container">
+            <h2 class="section-title">Compromiso Ambiental</h2>
+            <p class="about-text">
+                Ecoa se fundamenta en principios de economía circular y responsabilidad social empresarial, transformando desechos de madera en productos de valor que promueven prácticas de jardinería responsables y contribuyen al cuidado del planeta.
+            </p>
         </div>
-    </div>
-</section>
+    </section>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
-
+    <!-- Eslogan -->
+    <section class="about-section bg-accent fade-in">
+        <div class="container text-center">
+            <h2 class="slogan">"Eleva, cultiva y repite"</h2>
+            <p class="slogan-desc">
+                Este eslogan encapsula perfectamente la filosofía del emprendimiento: un producto reutilizable que crece junto con la planta, fomentando un ciclo continuo de cultivo responsable y compromiso ambiental.
+            </p>
+        </div>
+    </section>
 {% endblock %}

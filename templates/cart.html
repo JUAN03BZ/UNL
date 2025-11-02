@@ -1,39 +1,103 @@
+<!-- templates/cart.html -->
 {% extends "base.html" %}
-{% block title %}Carrito | Ecoa{% endblock %}
+
+{% block title %}Carrito de Compras - Ecoa{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+{% endblock %}
+
 {% block content %}
-<section class="cart-section">
-  <h2>Tu Carrito</h2>
+    <div class="cart-container">
+        <h2 class="cart-title">Tu Carrito</h2>
 
-  {% if cart_items %}
-    <div class="cart-items">
-      {% for item in cart_items %}
-        <div class="cart-card">
-          <img src="{{ url_for('static', filename='images/' + item['imagen']) }}" alt="{{ item['nombre'] }}">
-          <div class="cart-info">
-            <h3>{{ item['nombre'] }}</h3>
-            <p>Precio: ${{ "%.2f"|format(item['precio']) }}</p>
-            <p>Cantidad: {{ item['cantidad'] }}</p>
-          </div>
-          <div class="cart-actions">
-            <!-- 🔴 Basurita visible y funcional -->
-            <a href="{{ url_for('remove_from_cart', producto_id=item['id']) }}" class="delete-btn" title="Eliminar">
-              <i class="fa-solid fa-trash"></i>
-            </a>
-          </div>
-        </div>
-      {% endfor %}
+        {% if cart_items %}
+            <div class="cart-items">
+                {% for item in cart_items %}
+                <div class="cart-item" data-index="{{ loop.index0 }}">
+                    <div class="item-image">
+                        <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}" onerror="this.src='{{ url_for('static', filename='images/placeholder.jpg') }}'; this.onerror=null;">
+                    </div>
+                    <div class="item-details">
+                        <h3>{{ item.name }}</h3>
+                        <div class="item-price">${{ item.price }}</div>
+                        <div class="item-quantity-control">
+                            <label>Cantidad:</label>
+                            <div class="quantity-controls">
+                                <button type="button" class="btn-quantity" onclick="updateQuantity({{ loop.index0 }}, -1)">-</button>
+                                <span class="quantity-value">{{ item.quantity }}</span>
+                                <button type="button" class="btn-quantity" onclick="updateQuantity({{ loop.index0 }}, 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="item-subtotal">
+                            Subtotal: <span class="subtotal-amount">${{ "%.2f"|format(item.price * item.quantity) }}</span>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <a href="{{ url_for('remove_from_cart', item_index=loop.index0) }}" class="btn-remove" title="Eliminar" onclick="return confirm('¿Estás seguro de eliminar este producto?')">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Total:</span>
+                    <span class="total-price">${{ "%.2f"|format(total) }}</span>
+                </div>
+                <a href="{{ url_for('checkout') }}" class="btn btn-checkout">Proceder al Pago</a>
+            </div>
+        {% else %}
+            <!-- CARRO VACÍO -->
+            <div class="empty-cart-container">
+                <div class="empty-cart-icon">😢</div>
+                <p class="empty-cart-text">Tu carrito está vacío.</p>
+                <a href="{{ url_for('products') }}" class="btn btn-empty-cart">Ver Materas</a>
+            </div>
+        {% endif %}
     </div>
 
-    <div class="cart-total">
-      <h3>Total: ${{ "%.2f"|format(total) }}</h3>
-    </div>
+    <script>
+        function updateQuantity(itemIndex, change) {
+            const itemElement = document.querySelector(`.cart-item[data-index="${itemIndex}"]`);
+            const quantitySpan = itemElement.querySelector('.quantity-value');
+            const currentQuantity = parseInt(quantitySpan.textContent);
+            let newQuantity = currentQuantity + change;
 
-  {% else %}
-    <div class="cart-empty">
-      <i class="fa-solid fa-face-frown"></i>
-      <p>Tu carrito está vacío 😢</p>
-      <a href="{{ url_for('materas') }}" class="btn">Explora nuestras materas</a>
-    </div>
-  {% endif %}
-</section>
+            if (newQuantity < 1) newQuantity = 1; // No permitir cantidades menores a 1
+
+            fetch(`/update_quantity/${itemIndex}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `quantity=${newQuantity}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    if (data.removed) {
+                        itemElement.remove();
+                        alert(data.message);
+                        // Actualizar total global si es necesario
+                        document.querySelector('.total-price').textContent = data.new_total;
+                    } else {
+                        quantitySpan.textContent = data.new_quantity;
+                        // Actualizar subtotal del item
+                        itemElement.querySelector('.subtotal-amount').textContent = data.item_subtotal;
+                        // Actualizar total global
+                        document.querySelector('.total-price').textContent = data.new_total;
+                    }
+                } else {
+                    alert('Error al actualizar la cantidad.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error de conexión al actualizar la cantidad.');
+            });
+        }
+    </script>
 {% endblock %}

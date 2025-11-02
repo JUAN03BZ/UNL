@@ -1,0 +1,29 @@
+<!-- templates/product_detail.html -->
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - Ecoa{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/product_detail.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="product-detail-container">
+        <div class="product-image">
+            <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}" onerror="this.src='{{ url_for('static', filename='images/placeholder.jpg') }}'; this.onerror=null;">
+        </div>
+        <div class="product-info">
+            <h1>{{ product.name }}</h1>
+            <div class="price">${{ product.price }}</div>
+            <p class="description">{{ product.description }}</p>
+            <ul class="features">
+                {% for feature in product.features %}
+                <li>{{ feature }}</li>
+                {% endfor %}
+            </ul>
+            <form method="POST" action="{{ url_for('add_to_cart', product_id=product.id) }}">
+                <button type="submit" class="btn btn-add-to-cart">Agregar al Carrito</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -26,3 +26,39 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => cartIcon.classList.remove("bounce"), 700);
   }
 });
+// static/js/script.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // === ANIMACIONES DE SCROLL ===
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Opcional: animar los elementos hijos
+                const cards = entry.target.querySelectorAll('.benefit-card');
+                cards.forEach(card => {
+                    card.style.animation = card.style.animation.replace('none', '');
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Observar todas las secciones
+    document.querySelectorAll('.about-section').forEach(section => {
+        observer.observe(section);
+    });
+});

@@ -1,44 +1,82 @@
-.quiz-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
+/* static/css/perfect_plant.css */
 
-.quiz-form label {
-    display: block;
-    margin: 1.2rem 0 0.6rem;
-    font-weight: 600;
-    color: var(--primary-dark);
-}
-
-.quiz-form select {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-.result-container {
+.quiz-hero {
+    background: linear-gradient(135deg, #044f3b 0%, #2f9c89 100%);
+    padding: 100px 20px;
     text-align: center;
-    padding: 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
-.result-image {
-    width: 200px;
-    height: auto;
-    border-radius: 12px;
-    margin: 0 auto 1.5rem;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+.quiz-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
-.result-title {
-    font-size: 2rem;
-    color: var(--secondary-teal);
-    margin-bottom: 1rem;
+.quiz-hero .container {
+    position: relative;
+    z-index: 2;
 }
 
-.result-message {
+.quiz-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.quiz-subtitle {
     font-size: 1.2rem;
-    color: var(--primary-dark);
-    margin-bottom: 1.5rem;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.85); /* Blanco con opacidad */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-quiz {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: white;
+    color: #044f3b; /* Verde oliva oscuro */
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-quiz:hover {
+    background-color: #044f3b;
+    color: white;
+    border-color: #044f3b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .quiz-title {
+        font-size: 2.2rem;
+    }
+
+    .quiz-subtitle {
+        font-size: 1rem;
+    }
+
+    .btn-quiz {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
 }

@@ -1,19 +1,48 @@
+<!-- templates/register.html -->
 {% extends "base.html" %}
+
+{% block title %}Registrarse - Ecoa{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
 {% block content %}
-<section class="auth">
-  <h2>Crear cuenta</h2>
-  <form method="POST" class="auth-form">
-    <label>Nombre:</label>
-    <input type="text" name="nombre" required>
+    <div class="auth-container">
+        <h2 class="auth-title">Crear Cuenta</h2>
 
-    <label>Email:</label>
-    <input type="email" name="email" required>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
 
-    <label>Contraseña:</label>
-    <input type="password" name="password" required>
+        <form method="POST" class="auth-form">
+            <div class="form-group">
+                <label for="name">Nombre Completo</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm">Confirmar Contraseña</label>
+                <input type="password" id="confirm" name="confirm" required>
+            </div>
+            <button type="submit" class="btn-auth">Registrarse</button>
+        </form>
 
-    <button type="submit" class="btn">Registrarse</button>
-  </form>
-  <p>¿Ya tienes cuenta? <a href="{{ url_for('login') }}">Inicia sesión aquí</a></p>
-</section>
+        <div class="auth-link">
+            ¿Ya tienes cuenta? <a href="{{ url_for('login') }}">Inicia sesión aquí</a>
+        </div>
+    </div>
 {% endblock %}

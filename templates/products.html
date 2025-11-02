@@ -1,40 +1,37 @@
+<!-- templates/products.html -->
 {% extends "base.html" %}
+
 {% block title %}Materas - Ecoa{% endblock %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+{% endblock %}
+
 {% block content %}
-<section class="catalogo">
-  <h2>Nuestras Materas Ecoa 🌿</h2>
-
-  <div class="productos">
-    {% for producto in productos %}
-    <div class="card">
-      <div class="img-box">
-        <img src="{{ url_for('static', filename='images/' + producto.imagen) }}" alt="{{ producto.nombre }}">
-      </div>
-      <h3>{{ producto.nombre }}</h3>
-      <p>${{ '%.2f'|format(producto.precio) }}</p>
-
-      <!-- ✅ Botón Agregar al carrito -->
-      <a href="{{ url_for('add_to_cart', producto_id=producto.id) }}" class="btn">
-        <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
-      </a>
-
-      <!-- ✅ Características VISIBLES por defecto con medidas específicas -->
-      <div class="card-info" style="display: block;">
-        <p><strong>Material:</strong> 100% biodegradable</p>
-        <p><strong>Uso:</strong> Interior / exterior</p>
-        <p><strong>Medidas:</strong> 
-          {% if loop.first %}
-          15cm (alto) x 12cm (diámetro)
-          {% elif loop.index == 2 %}
-          25cm (alto) x 20cm (diámetro)
-          {% else %}
-          35cm (alto) x 30cm (diámetro)
-          {% endif %}
-        </p>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</section>
+    <section class="section">
+        <div class="container">
+            <div class="products-intro">
+                <h2 class="section-title">Nuestras Materas</h2>
+                <p>Descubre nuestra colección de materas sostenibles, diseñadas con amor por la naturaleza.</p>
+            </div>
+            <div class="product-grid">
+                {% for product in products %}
+                <div class="product-card">
+                    <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}" onerror="this.src='{{ url_for('static', filename='images/placeholder.jpg') }}'; this.onerror=null;">
+                    <div class="product-info">
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.description }}</p>
+                        <div class="price">${{ product.price }}</div>
+                        <div class="product-actions">
+                            <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn-details">Ver Detalles</a>
+                            <form method="POST" action="{{ url_for('add_to_cart', product_id=product.id) }}" style="display: inline;">
+                                <button type="submit" class="btn-add">Agregar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 {% endblock %}

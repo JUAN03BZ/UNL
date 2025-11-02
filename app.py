@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
+from flask import jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 import pymysql
 import os
@@ -37,7 +38,7 @@ PRODUCTS = [
         'id': 1,
         'name': 'Mata Equitable Eco',
         'price': 25.99,
-        'image': 'product1.jpg',
+        'image': 'hero1.png',
         'description': 'Mata sostenible hecha con materiales 100% naturales.',
         'features': ['Color Natural', 'Biodegradable', 'Fácil de cultivar']
     },
@@ -45,7 +46,7 @@ PRODUCTS = [
         'id': 2,
         'name': 'Mata Colgante Eco',
         'price': 29.99,
-        'image': 'product2.jpg',
+        'image': 'hero2.png',
         'description': 'Perfecta para balcones. Diseño colgante con cuerda natural.',
         'features': ['Colgante', 'Resistente al clima', 'Estilo rústico']
     },
@@ -53,11 +54,12 @@ PRODUCTS = [
         'id': 3,
         'name': 'Mata Mini Eco',
         'price': 18.50,
-        'image': 'product3.jpg',
+        'image': 'hero3.png',
         'description': 'Ideal para escritorios. Pequeña pero llena de vida.',
         'features': ['Compacta', 'Ideal para principiantes', 'Decorativa']
     }
 ]
+
 
 # === FUNCIÓN DE RECOMENDACIÓN ===
 def recommend_plant(light, time, space, has_pets, style):
@@ -145,7 +147,7 @@ def product_detail(product_id):
         return redirect(url_for('products'))
     return render_template('product_detail.html', product=product)
 
-@app.route('/about')
+@app.route('/acerca')
 def about():
     return render_template('about.html')
 
@@ -235,17 +237,59 @@ def add_to_cart(product_id):
 
     session['cart'] = cart
     flash(f"{product['name']} agregado al carrito.")
-    return redirect(url_for('products'))
+    return redirect(request.referrer or url_for('products')) # Redirige a la página de donde vino
 
+# Añadir esta ruta en app.py
+@app.route('/update_cart/<int:item_index>', methods=['POST'])
+def update_cart(item_index):
+    cart = session.get('cart', [])
+    if 0 <= item_index < len(cart):
+        new_quantity = request.form.get('quantity', type=int)
+        if new_quantity and new_quantity > 0:
+            cart[item_index]['quantity'] = new_quantity
+        else:
+            cart.pop(item_index)  # Si la cantidad es 0 o menor, eliminar
+    session['cart'] = cart
+    return redirect(url_for('cart'))
+
+# Asegúrate de tener también la ruta para eliminar
 @app.route('/remove_from_cart/<int:item_index>')
 def remove_from_cart(item_index):
     cart = session.get('cart', [])
     if 0 <= item_index < len(cart):
         removed = cart.pop(item_index)
         session['cart'] = cart
-        flash(f"{removed['name']} eliminado.")
+        flash(f"{removed['name']} eliminado del carrito.")
     return redirect(url_for('cart'))
 
+@app.route('/update_quantity/<int:item_index>', methods=['POST'])
+def update_quantity(item_index):
+    cart = session.get('cart', [])
+    if 0 <= item_index < len(cart):
+        new_quantity = request.form.get('quantity', type=int)
+        if new_quantity and new_quantity > 0:
+            cart[item_index]['quantity'] = new_quantity
+            session['cart'] = cart
+            # Recalculamos el total
+            total = sum(item['price'] * item['quantity'] for item in cart)
+            return jsonify({
+                'success': True,
+                'new_quantity': new_quantity,
+                'new_total': f"${total:.2f}",
+                'item_subtotal': f"${cart[item_index]['price'] * new_quantity:.2f}"
+            })
+        elif new_quantity == 0:
+            removed_item = cart.pop(item_index)
+            session['cart'] = cart
+            # Recalculamos el total
+            total = sum(item['price'] * item['quantity'] for item in cart)
+            return jsonify({
+                'success': True,
+                'removed': True,
+                'new_total': f"${total:.2f}",
+                'message': f"{removed_item['name']} eliminado del carrito."
+            })
+    return jsonify({'success': False}), 400
 # === TU PLANTA PERFECTA ===
 @app.route('/mi-planta-perfecta', methods=['GET', 'POST'])
 def perfect_plant():
