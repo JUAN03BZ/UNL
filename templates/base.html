@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ecoa - Eleva, cultiva y repite{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo Ecoa">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('products') }}">Materas</a></li>
+                <li><a href="{{ url_for('about') }}">Acerca de Ecoa</a></li>
+                <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+                {% if session.user_id %}
+                    <li><a href="{{ url_for('cart') }}">Carrito</a></li>
+                    <li><a href="{{ url_for('perfect_plant') }}">Tu Planta Perfecta</a></li>
+                    <li><a href="#">Hola, {{ session.user_name }}</a></li>
+                    <li><a href="{{ url_for('logout') }}">Salir</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('register') }}">Registro</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <div class="flash">{{ msg }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ecoa. Eleva, cultiva y repite. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

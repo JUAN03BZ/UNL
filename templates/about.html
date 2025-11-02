@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Acerca de Ecoa - Innovación y Sostenibilidad{% endblock %}
+{% block content %}
+
+<section class="about-hero">
+    <div class="container">
+        <h1>Acerca de Ecoa</h1>
+        <p class="hero-subtitle">Innovación y sostenibilidad en cada maceta</p>
+    </div>
+</section>
+
+<section class="about-content">
+    <div class="container">
+        <div class="about-intro">
+            <h2>¿Qué es Ecoa?</h2>
+            <p class="lead">
+                Ecoa es un emprendimiento innovador dedicado a la fabricación de <strong>macetas expandibles elaboradas a base de madera reciclada</strong>, ofreciendo una alternativa ecológica y funcional para espacios reducidos en zonas urbanas.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>Propuesta de Valor Única</h3>
+                <p>Ecoa representa la fusión perfecta entre <strong>innovación y sostenibilidad ambiental</strong>. Nuestro producto estrella consiste en una maceta compuesta por anillos que se expanden y encajan entre sí, permitiendo que la estructura se adapte al crecimiento de la planta sin necesidad de trasplantes.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Origen del Nombre</h3>
+                <p>El nombre "Ecoa" surge de la combinación de dos conceptos fundamentales:</p>
+                <ul>
+                    <li><strong>"Eco"</strong> de ecológico</li>
+                    <li><strong>"a"</strong> de adaptable</li>
+                </ul>
+                <p>Reflejando así la esencia del emprendimiento: productos ecológicos que se adaptan a las necesidades de las plantas y los espacios urbanos.</p>
+            </div>
+        </div>
+
+        <div class="benefits-section">
+            <h2>Beneficios Diferenciadores</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="benefit-icon">🌱</span>
+                    <h4>Para la Planta</h4>
+                    <p>Elimina el estrés y maltrato causado por los trasplantes tradicionales</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">💰</span>
+                    <h4>Para el Consumidor</h4>
+                    <p>Ahorro económico al evitar la compra constante de nuevas macetas y herramientas</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🌎</span>
+                    <h4>Para el Medio Ambiente</h4>
+                    <p>Reutilización de desechos de madera y reducción de residuos contaminantes</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🏙️</span>
+                    <h4>Para Espacios Urbanos</h4>
+                    <p>Optimización de espacios reducidos mediante diseño funcional</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="commitment-section">
+            <div class="commitment-content">
+                <h2>Compromiso Ambiental</h2>
+                <p>Ecoa se fundamenta en principios de <strong>economía circular y responsabilidad social empresarial</strong>, transformando desechos de madera en productos de valor que promueven prácticas de jardinería responsables y contribuyen al cuidado del planeta.</p>
+                
+                <div class="slogan">
+                    <h3>"Eleva, cultiva y repite"</h3>
+                    <p>Este eslogan encapsula perfectamente la filosofía del emprendimiento: un producto reutilizable que crece junto con la planta, fomentando un ciclo continuo de cultivo responsable y compromiso ambiental.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+
+{% endblock %}

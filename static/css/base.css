@@ -1,0 +1,128 @@
+:root {
+    --primary-dark: #044f3b;
+    --accent-gold: #bb900e;
+    --accent-teal: #75beb5;
+    --secondary-teal: #2f9c89;
+    --light-green: #1fa237;
+    --white: #ffffff;
+    --light-bg: #f8f9fa;
+    --text: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo img {
+    height: 60px;
+    filter: brightness(0) invert(1);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-gold);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 2.5rem;
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.02rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.65rem 1.2rem;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--secondary-teal);
+}
+
+.btn-accent {
+    background-color: var(--accent-gold);
+}
+
+.btn-accent:hover {
+    background-color: #a07a00;
+}
+
+.flash {
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--accent-teal);
+    color: var(--primary-dark);
+    font-weight: 600;
+    text-align: center;
+}
+
+footer {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 1.8rem;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+}

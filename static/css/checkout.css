@@ -1,0 +1,29 @@
+.checkout-summary {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f1f8f5;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-teal);
+}
+
+.payment-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.simulated-warning {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #fff8e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #5d4037;
+}

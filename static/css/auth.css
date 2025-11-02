@@ -1,0 +1,28 @@
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.auth-container h1 {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 0.85rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.auth-links {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.auth-links a {
+    color: var(--accent-gold);
+    text-decoration: none;
+}

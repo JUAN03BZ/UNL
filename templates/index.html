@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Inicio - Ecoa{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Bienvenido a Ecoa</h1>
+    <p>En Ecoa creemos en la conexión entre la naturaleza y el hogar. Nuestras materas están diseñadas para elevar tu espacio, cultivar bienestar y repetir el ciclo de la vida con conciencia ecológica.</p>
+    <img src="{{ url_for('static', filename='images/product1.jpg') }}" alt="Mata Ecoa" class="hero-img">
+    <a href="{{ url_for('products') }}" class="btn">Explorar Materas</a>
+</section>
+{% endblock %}
