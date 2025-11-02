@@ -463,3 +463,25 @@ section.section {
     background-color: var(--primary); /* Línea verde oliva oscuro */
     border-radius: 2px;
 }
+/* Ícono de usuario para login - estilo diferenciado */
+.icon-user-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 2px solid #044f3b;      /* Borde verde oscuro */
+    border-radius: 50%;
+    color: #044f3b;                /* Ícono en verde oscuro */
+    background: white;             /* Fondo blanco */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-left: 8px;              /* Espacio del carrito */
+}
+
+.icon-user-login:hover {
+    background: #044f3b;          /* Fondo verde oscuro al pasar */
+    color: white;                 /* Ícono blanco */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(4, 79, 59, 0.2);
+}

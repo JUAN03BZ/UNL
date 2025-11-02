@@ -11,29 +11,26 @@
                     <li><a href="{{ url_for('products') }}" class="nav-link">Macetas</a></li>
                     <li><a href="{{ url_for('about') }}" class="nav-link">Acerca de</a></li>
                     <li><a href="{{ url_for('contact') }}" class="nav-link">Contacto</a></li>
-                    <!-- ⚠️ QUITAMOS "Tu Planta Ideal" y "Cerrar Sesión" de aquí -->
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="#" class="icon-btn"><i class="fas fa-user"></i></a>
-                <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                <!-- Carrito -->
                 <a href="{{ url_for('cart') }}" class="icon-btn cart-btn">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">{{ session.cart|length or 0 }}</span>
                 </a>
 
-                <!-- BOTONES DE AUTENTICACIÓN -->
-                {% if session.user_name %}
-                    <!-- Botón "Tu Planta Ideal" -->
+                <!-- Usuario NO logueado -->
+                {% if not session.user_name %}
+                    <a href="{{ url_for('login') }}" class="icon-btn icon-user-login" title="Iniciar Sesión">
+                        <i class="fas fa-user"></i>
+                    </a>
+                {% else %}
+                    <!-- Usuario logueado -->
                     <a href="{{ url_for('perfect_plant') }}" class="btn btn-small btn-plant">Tu Planta Ideal</a>
-                    <!-- Ícono de Cerrar Sesión -->
                     <a href="{{ url_for('logout') }}" class="icon-btn icon-logout" title="Cerrar Sesión">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
-                {% else %}
-                    <!-- Botones de Iniciar Sesión y Registrarse -->
-                    <a href="{{ url_for('login') }}" class="btn btn-small">Iniciar Sesión</a>
-                    <a href="{{ url_for('register') }}" class="btn btn-outline btn-small">Registrarse</a>
                 {% endif %}
 
                 <button class="menu-toggle" aria-label="Menú móvil">
