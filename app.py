@@ -337,13 +337,45 @@ def perfect_plant():
     return render_template('plant_quiz.html')
 
 # Checkout simulado
-@app.route('/checkout')
+@app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
-    if not session.get('cart'):
-        flash("Tu carrito está vacío.")
-        return redirect(url_for('cart'))
-    total = sum(item['price'] * item['quantity'] for item in session.get('cart', []))
-    return render_template('checkout.html', total=total)
+    if 'user_id' not in session:
+        flash('Debes iniciar sesión para finalizar tu compra.', 'warning')
+        return redirect(url_for('login'))
+
+    cart = session.get('cart', [])
+    if not cart:
+        flash('Tu carrito está vacío.', 'warning')
+        return redirect(url_for('products'))
+
+    total = sum(item['price'] * item['quantity'] for item in cart)
+
+    # Si es POST, procesa la dirección y el método de entrega
+    if request.method == 'POST':
+        # Guarda la dirección en la sesión
+        session['delivery_address'] = {
+            'department': request.form['department'],
+            'city': request.form['city'],
+            'neighborhood': request.form['neighborhood'],
+            'address': request.form['address'],
+            'building': request.form['building']
+        }
+        session['delivery_method'] = request.form.get('delivery_method', 'home')
+
+        # Simular pago exitoso
+        session.pop('cart', None)
+        flash('✅ ¡Pago simulado exitoso! Gracias por tu compra, Geovanna 🌿', 'success')
+        return redirect(url_for('index'))
+
+    # Carga datos predeterminados o deja vacíos
+    address = session.get('delivery_address', {})
+    delivery_method = session.get('delivery_method', 'home')
+
+    return render_template('checkout.html',
+                           cart_items=cart,
+                           total=round(total, 2),
+                           address=address,
+                           delivery_method=delivery_method)
 
 # === Crear tablas al iniciar (solo en desarrollo) ===
 with app.app_context():

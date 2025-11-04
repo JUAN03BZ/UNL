@@ -1,0 +1,252 @@
+<!-- templates/checkout.html -->
+{% extends "base.html" %}
+
+{% block title %}Finalizar Compra - Ecoa{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/checkout.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="checkout-wrapper">
+    <!-- ENCABEZADO VERDE -->
+    <div class="checkout-header">
+        <p>Tu pedido sostenible está a un paso de convertirse en realidad 🌿</p>
+    </div>
+
+    <!-- PASOS (Progress Bar) -->
+    <div class="checkout-steps">
+        <div class="step active">
+            <div class="step-number">1</div>
+            <div class="step-label">Dirección</div>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-label">Entrega</div>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-label">Pago</div>
+        </div>
+    </div>
+
+    <!-- FORMULARIO -->
+    <form method="POST" id="checkout-form">
+        <!-- PASO 1: DIRECCIÓN -->
+        <div class="checkout-section">
+            <h3>Dirección de Entrega</h3>
+
+            <div class="form-group">
+                <label for="province">Provincia</label>
+                <select id="province" name="province" required onchange="updateCities()">
+                    <option value="">Selecciona tu provincia</option>
+                    <option value="Azuay">Azuay</option>
+                    <option value="Bolívar">Bolívar</option>
+                    <option value="Cañar">Cañar</option>
+                    <option value="Carchi">Carchi</option>
+                    <option value="Chimborazo">Chimborazo</option>
+                    <option value="Cotopaxi">Cotopaxi</option>
+                    <option value="El Oro">El Oro</option>
+                    <option value="Esmeraldas">Esmeraldas</option>
+                    <option value="Galápagos">Galápagos</option>
+                    <option value="Guayas">Guayas</option>
+                    <option value="Imbabura">Imbabura</option>
+                    <option value="Loja" selected>Loja</option>
+                    <option value="Los Ríos">Los Ríos</option>
+                    <option value="Manabí">Manabí</option>
+                    <option value="Morona Santiago">Morona Santiago</option>
+                    <option value="Napo">Napo</option>
+                    <option value="Orellana">Orellana</option>
+                    <option value="Pastaza">Pastaza</option>
+                    <option value="Pichincha">Pichincha</option>
+                    <option value="Santa Elena">Santa Elena</option>
+                    <option value="Santo Domingo de los Tsáchilas">Santo Domingo</option>
+                    <option value="Sucumbíos">Sucumbíos</option>
+                    <option value="Tungurahua">Tungurahua</option>
+                    <option value="Zamora Chinchipe">Zamora Chinchipe</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="city">Ciudad</label>
+                <select id="city" name="city" required>
+                    <option value="">Selecciona tu ciudad</option>
+                    <option value="Loja">Loja</option>
+                    <option value="Catamayo">Catamayo</option>
+                    <option value="Zamora">Zamora</option>
+                    <option value="Cuenca">Cuenca</option>
+                    <option value="Quito">Quito</option>
+                    <option value="Guayaquil">Guayaquil</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="neighborhood">Barrio / Sector</label>
+                <input type="text" id="neighborhood" name="neighborhood" placeholder="Ej. Centro, Jipiro, La Floresta" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Dirección exacta</label>
+                <input type="text" id="address" name="address" placeholder="Ej. Calle Sucre N24-45 entre Bolívar y 10 de Agosto" required>
+            </div>
+
+            <div class="form-group">
+                <label for="building">Referencia / Casa / Edificio</label>
+                <input type="text" id="building" name="building" placeholder="Ej. Casa color verde, Edificio Los Álamos, Apt 302">
+            </div>
+        </div>
+
+        <!-- PASO 2: ENTREGA -->
+        <div class="checkout-section">
+            <h3>Opción de Entrega</h3>
+
+            <div class="delivery-options">
+                <div class="delivery-option">
+                    <input type="radio" id="delivery_home" name="delivery_method" value="home" checked>
+                    <label for="delivery_home">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div class="option-content">
+                            <strong>Envío a domicilio</strong>
+                            <p>Llega entre el {{ delivery_start }} y {{ delivery_end }}</p>
+                        </div>
+                        <span class="price">$5.00</span>
+                    </label>
+                </div>
+
+                <div class="delivery-option">
+                    <input type="radio" id="delivery_pickup" name="delivery_method" value="pickup">
+                    <label for="delivery_pickup">
+                        <i class="fas fa-store"></i>
+                        <div class="option-content">
+                            <strong>Recoger en tienda</strong>
+                            <p>En nuestro taller en Loja (Centro)</p>
+                        </div>
+                        <span class="price">Gratis</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- PASO 3: PAGO -->
+        <div class="checkout-section">
+            <h3>Método de Pago</h3>
+
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <input type="radio" id="pagoefectivo" name="payment_method" value="efectivo" checked>
+                    <label for="pagoefectivo">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Pago en efectivo (al recibir)</span>
+                    </label>
+                </div>
+                <div class="payment-method">
+                    <input type="radio" id="transferencia" name="payment_method" value="transferencia">
+                    <label for="transferencia">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Transferencia bancaria</span>
+                    </label>
+                </div>
+                <div class="payment-method">
+                    <input type="radio" id="pichincha" name="payment_method" value="pichincha">
+                    <label for="pichincha">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Pichincha Transfer</span>
+                    </label>
+                </div>
+                <div class="payment-method">
+                    <input type="radio" id="daviplata" name="payment_method" value="daviplata">
+                    <label for="daviplata">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Daviplata (Banco Davivienda)</span>
+                    </label>
+                </div>
+                <div class="payment-method">
+                    <input type="radio" id="nequi" name="payment_method" value="nequi">
+                    <label for="nequi">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Nequi (solo para compras en línea)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- RESUMEN -->
+            <div class="payment-summary">
+                <h4>Resumen de tu compra</h4>
+                <div class="summary-item">
+                    <span>Productos ({{ cart_items|length }})</span>
+                    <span>${{ "%.2f"|format(total) }}</span>
+                </div>
+                <div class="summary-item">
+                    <span>Envío</span>
+                    <span id="shipping-amount">$5.00</span>
+                </div>
+                <div class="summary-total">
+                    <span><strong>Total</strong></span>
+                    <span id="total-amount">${{ "%.2f"|format(total + 5.00) }}</span>
+                </div>
+            </div>
+
+            <div class="terms-section">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a>.</label>
+            </div>
+
+            <button type="submit" class="btn-primary">Confirmar Pedido</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Fechas dinámicas de entrega (hoy + 3 a 5 días)
+    const today = new Date();
+    const start = new Date(today);
+    start.setDate(today.getDate() + 3);
+    const end = new Date(today);
+    end.setDate(today.getDate() + 5);
+
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.querySelectorAll('.delivery-option p').forEach((el, i) => {
+        if (i === 0) {
+            el.innerHTML = `Llega entre el <strong>${start.getDate()} de ${start.toLocaleString('es-ES', { month: 'long' })}</strong> y <strong>${end.getDate()} de ${end.toLocaleString('es-ES', { month: 'long' })}</strong>`;
+        }
+    });
+
+    // Actualizar ciudades según provincia
+    function updateCities() {
+        const province = document.getElementById('province').value;
+        const citySelect = document.getElementById('city');
+        citySelect.innerHTML = '<option value="">Selecciona tu ciudad</option>';
+
+        let cities = [];
+        if (province === 'Pichincha') {
+            cities = ['Quito', 'Cayambe', 'Machachi', 'Santo Domingo'];
+        } else if (province === 'Guayas') {
+            cities = ['Guayaquil', 'Samborondón', 'Durán', 'Milagro'];
+        } else if (province === 'Azuay') {
+            cities = ['Cuenca', 'Gualaceo', 'Paute'];
+        } else if (province === 'Loja') {
+            cities = ['Loja', 'Catamayo', 'Zamora'];
+        } else {
+            cities = ['Otra ciudad'];
+        }
+
+        cities.forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            citySelect.appendChild(option);
+        });
+    }
+
+    // Actualizar total si se elige retiro en tienda
+    document.querySelectorAll('input[name="delivery_method"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            const isPickup = radio.value === 'pickup';
+            const shipping = isPickup ? 0 : 5;
+            const newTotal = {{ "%.2f"|format(total) }} + shipping;
+            document.getElementById('shipping-amount').textContent = isPickup ? 'Gratis' : '$5.00';
+            document.getElementById('total-amount').textContent = '$' + newTotal.toFixed(2);
+        });
+    });
+</script>
+{% endblock %}
