@@ -16,7 +16,14 @@
                 {% for item in cart_items %}
                 <div class="cart-item" data-index="{{ loop.index0 }}">
                     <div class="item-image">
-                        <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}" onerror="this.src='{{ url_for('static', filename='images/placeholder.jpg') }}'; this.onerror=null;">
+                    
+    {% if item.image %}
+    <img src="{{ url_for('static', filename='images/' + item.image) }}" 
+         alt="{{ item.name }}"
+         onerror="this.style.display='none';">
+{% else %}
+    <div class="no-image">🖼️</div>
+{% endif %}
                     </div>
                     <div class="item-details">
                         <h3>{{ item.name }}</h3>

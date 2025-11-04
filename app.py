@@ -214,30 +214,33 @@ def cart():
 
 @app.route('/add_to_cart/<int:product_id>', methods=['POST'])
 def add_to_cart(product_id):
+    if 'user_id' not in session:
+        flash('Debes iniciar sesión para agregar productos al carrito.', 'warning')
+        return redirect(url_for('login'))
+
+    # Buscar el producto real en PRODUCTS
     product = next((p for p in PRODUCTS if p['id'] == product_id), None)
     if not product:
-        flash("Producto no encontrado.")
+        flash("Producto no disponible.")
         return redirect(url_for('products'))
 
     cart = session.get('cart', [])
-    found = False
-    for item in cart:
-        if item['id'] == product_id:
-            item['quantity'] += 1
-            found = True
-            break
-    if not found:
+    existing = next((item for item in cart if item['id'] == product_id), None)
+
+    if existing:
+        existing['quantity'] += 1
+    else:
         cart.append({
-            'id': product_id,
+            'id': product['id'],
             'name': product['name'],
             'price': product['price'],
-            'image': product['image'],
+            'image': product['image'],  # ← ¡OBLIGATORIO!
             'quantity': 1
         })
 
     session['cart'] = cart
-    flash(f"{product['name']} agregado al carrito.")
-    return redirect(request.referrer or url_for('products')) # Redirige a la página de donde vino
+    flash(f"{product['name']} agregado al carrito.", 'success')
+    return redirect(url_for('products'))
 
 # Añadir esta ruta en app.py
 @app.route('/update_cart/<int:item_index>', methods=['POST'])
