@@ -5,6 +5,7 @@
 
 {% block styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 {% endblock %}
 
 {% block content %}
@@ -12,8 +13,9 @@
         <div class="container">
             <div class="products-intro">
                 <h2 class="section-title">Nuestras Materas</h2>
-                <p>Descubre nuestra colección de materas sostenibles, diseñadas con amor por la naturaleza.</p>
+                <p>Descubre nuestra colección de materas sostenibles, diseñadas con amor por la naturaleza y fabricadas con materiales 100% reciclados.</p>
             </div>
+            
             <div class="product-grid">
                 {% for product in products %}
                 <div class="product-card">
@@ -33,53 +35,90 @@
                 {% endfor %}
             </div>
 
-            <!-- NUEVA SECCIÓN: CARACTERÍSTICAS Y BENEFICIOS (diseño adaptado a tu estilo) -->
-            <div class="features-section">
-                <h2 class="section-title">Características</h2>
-                <p class="section-subtitle">Beneficios de nuestras materas expandibles:</p>
-
-                <!-- Bloques de beneficios (fondo verde oscuro, texto blanco) -->
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <h3>Ecológicas:</h3>
-                        <p>Al estar hechas de material reciclado, ayudamos a reducir la cantidad de residuos que terminan en los vertederos.</p>
+            <!-- SECCIÓN DE CARACTERÍSTICAS MEJORADA -->
+            <div class="caracteristicas-section">
+                <div class="caracteristicas-header">
+                    <h2 class="caracteristicas-title">CARACTERÍSTICAS</h2>
+                    <h3 class="beneficios-subtitle">Beneficios de nuestras macetas:</h3>
+                </div>
+                
+                <div class="caracteristicas-container">
+                    <!-- LADO IZQUIERDO - BLOQUES VERDES HORIZONTALES -->
+                    <div class="beneficios-lado-izquierdo">
+                        <div class="beneficio-item">
+                            <div class="beneficio-header">
+                                <div class="beneficio-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="beneficio-content">
+                                    <h4 class="beneficio-subtitle">Ecológicas:</h4>
+                                    <p>Al estar hechas de material reciclado ayudamos a reducir la cantidad de residuos .</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="beneficio-item">
+                            <div class="beneficio-header">
+                                <div class="beneficio-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="beneficio-content">
+                                    <h4 class="beneficio-subtitle">Duraderas y resistentes:</h4>
+                                    <p>Al estar hechas con madera hacen que nuestras macetas sean altamente resistentes a las inclemencias del tiempo y al paso de los años.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="beneficio-item">
+                            <div class="beneficio-header">
+                                <div class="beneficio-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="beneficio-content">
+                                    <h4 class="beneficio-subtitle">Innovadoras y prácticas:</h4>
+                                    <p>Con un diseño funcional y moderno, nuestras macetas son ideales para cualquier tipo de planta y para quienes buscan soluciones sostenibles sin comprometer la estética.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="beneficio-item">
+                            <div class="beneficio-header">
+                                <div class="beneficio-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <div class="beneficio-content">
+                                    <h4 class="beneficio-subtitle">Contribución al reciclaje:</h4>
+                                    <p>Al elegir nuestros productos, nuestros clientes también participan activamente en el proceso de reciclaje y en la protección del medio ambiente.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="benefit-item">
-                        <h3>Duraderas y resistentes:</h3>
-                        <p>Las propiedades del material reciclado hacen que nuestras materas sean altamente resistentes a las inclemencias del tiempo.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h3>Innovadoras y prácticas:</h3>
-                        <p>Con un diseño funcional y moderno, ideales para cualquier tipo de planta y para quienes buscan soluciones sostenibles.</p>
+                    
+                    <!-- LADO DERECHO - CUADROS BLANCOS -->
+                    <div class="especificaciones-lado-derecho">
+                        <div class="especificacion-card">
+                            <i class="especificacion-icon fas fa-industry"></i>
+                            <p class="especificacion-text">Fabricadas con Madera reciclada</p>
+                        </div>
+                        
+                        <div class="especificacion-card">
+                            <i class="especificacion-icon fas fa-clock"></i>
+                            <p class="especificacion-text">Resistentes y duraderas</p>
+                        </div>
+                        
+                        <div class="especificacion-card">
+                            <i class="especificacion-icon fas fa-bacteria"></i>
+                            <p class="especificacion-text">Libres de hongos y bacterias</p>
+                        </div>
+                        
+                        <div class="especificacion-card">
+                            <i class="especificacion-icon fas fa-home"></i>
+                            <p class="especificacion-text">Aptas para exterior e interior</p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Cuadros de características (fondo blanco, borde suave) -->
-                <div class="feature-cards">
-                    <div class="feature-card">
-                        <h4>Fabricadas con MADERA RECICLADA</h4>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Resistentes y duraderas</h4>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Libres de hongos y bacterias</h4>
-                    </div>
-                    <div class="feature-card">
-                        <h4>Aptas para interior y exterior</h4>
-                    </div>
-                </div>
-
-                <!-- Colores disponibles -->
-                <div class="colors-section">
-                    <p><strong>Disponibles en los siguientes colores:</strong></p>
-                    <div class="color-swatches">
-                        <div class="color-swatch swatch-gray"></div>
-                        <div class="color-swatch swatch-white"></div>
-                        <div class="color-swatch swatch-black"></div>
-                        <div class="color-swatch swatch-gold"></div>
-                    </div>
-                </div>
+                
+                
             </div>
         </div>
     </section>

@@ -1,269 +1,649 @@
-/* static/css/products.css */
+/* ===== PRODUCTS STYLES ===== */
+:root {
+    --section-spacing: 5rem;
+    --primary-color: #5f8266;
+    --primary-dark: #2f5232;
+    --text-dark: #2d3748;
+    --text-light: #718096;
+    --white: #ffffff;
+    --gray-border: #e0e0e0;
+    --background-light: #f8fdf8;
+}
+
+.section {
+    padding: 4rem 0;
+}
 
 .products-intro {
     text-align: center;
-    margin-bottom: 2rem;
-    padding: 0 20px;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.products-intro h2 {
-    color: var(--primary); /* Verde oliva oscuro */
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+.section-title {
+    font-size: 3rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 2px;
 }
 
 .products-intro p {
-    color: var(--text-light); /* Gris oscuro */
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
+/* PRODUCT GRID */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 0 20px 60px; /* Padding inferior para separar del footer */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 6rem;
 }
 
 .product-card {
-    border: 1px solid #eee;
-    border-radius: 12px;
+    background: var(--white);
+    border-radius: 20px;
     overflow: hidden;
-    background: white;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--gray-border);
+    position: relative;
 }
 
 .product-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 .product-card img {
     width: 100%;
-    height: 220px;
-    object-fit: contain;
-    object-position: center;
-    border-bottom: 2px solid var(--accent); /* Línea decorativa en turquesa claro */
-    background: #f5f5f5; /* Fondo gris claro si no hay imagen */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999; /* Texto gris si no hay imagen */
-    font-size: 0.9rem;
-    font-weight: 500;
-    position: relative;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.product-card img::before {
-    content: "🖼️ Imagen del producto";
-    display: block;
-    text-align: center;
-    width: 100%;
-    padding: 10px;
-    font-size: 0.8rem;
-    color: #999;
-    opacity: 0.7;
-}
-
-.product-card img[src]::before {
-    display: none;
+.product-card:hover img {
+    transform: scale(1.05);
 }
 
 .product-info {
-    padding: 1.2rem;
+    padding: 2rem;
 }
 
 .product-info h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.6rem;
-    color: var(--primary); /* Verde oliva oscuro */
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 .product-info p {
-    color: var(--text-light); /* Gris claro */
-    margin-bottom: 0.8rem;
-    line-height: 1.5;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 .price {
-    font-weight: bold;
-    color: var(--secondary); /* Terracota */
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
 }
 
 .product-actions {
-    margin-top: 1rem;
     display: flex;
-    gap: 0.8rem;
-    justify-content: center; /* Centrado de botones */
-}
-
-/* === BOTONES DEL MISMO TAMAÑO Y ESTILO === */
-.btn-details,
-.btn-add {
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: var(--transition);
-    flex: 1; /* Ambos ocupan el mismo espacio */
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    min-width: 100px; /* Ancho mínimo para que sean iguales */
-    height: 40px; /* Altura fija para que sean iguales */
-    line-height: 20px; /* Alinea el texto verticalmente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .btn-details {
-    background-color: white;
-    color: var(--primary); /* Verde oliva oscuro */
-    border: 1px solid var(--primary);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 .btn-details:hover {
-    background-color: var(--primary);
-    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(95, 130, 102, 0.3);
 }
 
 .btn-add {
-    background-color: var(--primary); /* Verde oliva oscuro */
-    color: white;
-    border: none;
+    background: var(--white);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+    flex: 1;
+    min-width: 120px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 .btn-add:hover {
-    background-color: var(--secondary); /* Terracota */
-    color: white;
+    background: var(--primary-color);
+    color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(95, 130, 102, 0.3);
 }
 
-/* === SECCIÓN DE CARACTERÍSTICAS (estilo integrado con tu diseño) === */
-
-.features-section {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
+/* CARACTERÍSTICAS SECTION - DISEÑO MEJORADO */
+.caracteristicas-section {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: var(--background-light);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--gray-border);
 }
 
-.features-section .section-title {
-    color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 0.8rem;
-    text-align: center;
+.caracteristicas-header {
+    margin-bottom: 3rem;
 }
 
-.features-section .section-subtitle {
-    text-align: center;
-    color: var(--text-light);
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
+.caracteristicas-title {
+    font-size: 2.8rem;
+    color: var(--text-dark);
+    text-align: left;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    position: relative;
 }
 
-/* Beneficios en bloques verdes */
-.benefits-list {
+.caracteristicas-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 2px;
+}
+
+.beneficios-subtitle {
+    font-size: 1.4rem;
+    color: #355d3e;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* CONTENEDOR PRINCIPAL DE CARACTERÍSTICAS */
+.caracteristicas-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3rem;
+}
+
+/* LADO IZQUIERDO - BLOQUES VERDES HORIZONTALES MEJORADOS */
+.beneficios-lado-izquierdo {
     display: flex;
     flex-direction: column;
+    gap: 0.8rem; /* Espacio reducido entre bloques */
+}
+
+.beneficio-item {
+    background: linear-gradient(135deg, var(--primary-color), #6b8f72);
+    color: var(--white);
+    padding: 1.2rem 1.8rem; /* Espaciado interno aumentado */
+    border-radius: 10px;
+    box-shadow: 
+        0 4px 15px rgba(95, 130, 102, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4); /* Sombra interna blanca */
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.beneficio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+}
+
+.beneficio-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 20px rgba(95, 130, 102, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.beneficio-header {
+    display: flex;
+    align-items: flex-start;
     gap: 1rem;
-    margin-bottom: 2rem;
+    width: 100%;
 }
 
-.benefit-item {
-    background-color: var(--primary);
-    color: white;
-    padding: 1.2rem;
+.beneficio-icon {
+    font-size: 1.4rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
-    font-size: 0.95rem;
+    flex-shrink: 0;
+    color: var(--white);
+    margin-top: 0.2rem;
+}
+
+.beneficio-content {
+    flex: 1;
+}
+
+.beneficio-subtitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 1.3;
+}
+
+.beneficio-item p {
     line-height: 1.5;
-}
-
-.benefit-item h3,
-.benefit-item p {
-    color: white;
+    opacity: 0.95;
     margin: 0;
+    font-size: 0.95rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
-.benefit-item h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-/* Características en cuadros blancos */
-.feature-cards {
+/* LADO DERECHO - CUADROS BLANCOS EN GRID 2x2 */
+.especificaciones-lado-derecho {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: 1fr 1fr; /* Grid 2x2 */
+    gap: 1rem; /* Espacio reducido entre cuadros */
+    align-items: stretch;
 }
 
-.feature-card {
-    background: white;
-    border: 1px solid #f3eded;
-    border-radius: 8px;
-    padding: 1.2rem;
+.especificacion-card {
+    background: var(--white);
+    padding: 1.5rem 1rem; /* Padding reducido */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 140px; /* Altura reducida */
+    aspect-ratio: 1/1; /* Cuadrados perfectos */
 }
 
-.feature-card:hover {
+.especificacion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Borde superior verde */
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+.especificacion-card:hover {
     transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-color);
 }
 
-.feature-card h4 {
-    font-size: 1rem;
-    color: var(--primary);
+.especificacion-icon {
+    font-size: 2.2rem; /* Ícono más pequeño */
+    color: var(--primary-dark);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--background-light);
+    border-radius: 50%;
+}
+
+.especificacion-text {
+    font-size: 1rem; /* Texto más pequeño */
+    color: var(--primary-dark);
+    font-weight: 700;
     margin: 0;
+    line-height: 1.3;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* SECCIÓN INFERIOR CON ESPECIFICACIONES */
+.especificaciones-finales {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-top: 3rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--gray-border);
+}
+
+.especificaciones-lista {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.especificaciones-lista li {
+    padding: 0.8rem 0;
+    color: var(--text-dark);
     font-weight: 600;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
-/* Colores disponibles */
-.colors-section {
-    text-align: center;
-    margin-top: 2rem;
+.especificaciones-lista li:last-child {
+    border-bottom: none;
 }
 
-.colors-section p {
-    color: var(--text-light);
-    margin-bottom: 1rem;
-    font-weight: 500;
+.especificaciones-lista li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.colores-text {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin: 2rem 0 1.5rem 0;
+    font-weight: 600;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 .color-swatches {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     flex-wrap: wrap;
 }
 
 .color-swatch {
-    width: 30px;
-    height: 30px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    border: 1px solid #ddd;
+    border: 4px solid var(--white);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
 }
 
-.swatch-gray {
-    background-color: #5f5d5d;
+.color-swatch:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
 }
 
-.swatch-white {
-    background-color: white;
+.color-swatch::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
-.swatch-black {
-    background-color: #000;
+.color-swatch:hover::after {
+    border-color: var(--primary-color);
 }
 
-.swatch-gold {
-    background-color: #d4af37;
+.swatch-gray { background: #6c757d; }
+.swatch-white { background: #ffffff; border: 3px solid #e9ecef; }
+.swatch-black { background: #212529; }
+.swatch-gold { background: linear-gradient(135deg, #ffd700, #daa520); }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .caracteristicas-container {
+        gap: 2.5rem;
+    }
 }
+
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .products-intro {
+        margin-bottom: 3rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    
+    .caracteristicas-section {
+        padding: 2.5rem 2rem;
+        margin: 3rem auto;
+    }
+    
+    .caracteristicas-title {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    
+    .caracteristicas-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .caracteristicas-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .especificaciones-lado-derecho {
+        grid-template-columns: 1fr 1fr; /* Mantener 2x2 en tablets */
+        gap: 0.8rem;
+    }
+    
+    .beneficio-item {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .especificacion-card {
+        padding: 1.2rem 0.8rem;
+        min-height: 120px;
+    }
+    
+    .color-swatches {
+        gap: 1.5rem;
+    }
+    
+    .color-swatch {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .products-intro p {
+        font-size: 1.1rem;
+    }
+    
+    .product-info {
+        padding: 1.5rem;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+    }
+    
+    .btn-details, .btn-add {
+        width: 100%;
+    }
+    
+    .caracteristicas-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem auto;
+    }
+    
+    .caracteristicas-title {
+        font-size: 1.8rem;
+    }
+    
+    .beneficio-item {
+        padding: 1rem 1.2rem;
+    }
+    
+    .beneficio-header {
+        gap: 0.8rem;
+    }
+    
+    .beneficio-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .beneficio-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .especificaciones-lado-derecho {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+        gap: 0.8rem;
+    }
+    
+    .especificacion-card {
+        padding: 1.5rem 1rem;
+        min-height: 110px;
+        aspect-ratio: 2/1; /* Rectangular en móviles */
+    }
+    
+    .especificacion-icon {
+        font-size: 1.8rem;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .especificacion-text {
+        font-size: 0.9rem;
+    }
+    
+    .especificaciones-finales {
+        padding: 2rem 1.5rem;
+    }
+    
+    .color-swatches {
+        gap: 1rem;
+    }
+    
+    .color-swatch {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card, .beneficio-item, .especificacion-card {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+
+.beneficio-item:nth-child(1) { animation-delay: 0.2s; }
+.beneficio-item:nth-child(2) { animation-delay: 0.3s; }
+.beneficio-item:nth-child(3) { animation-delay: 0.4s; }
+.beneficio-item:nth-child(4) { animation-delay: 0.5s; }
+
+.especificacion-card:nth-child(1) { animation-delay: 0.3s; }
+.especificacion-card:nth-child(2) { animation-delay: 0.4s; }
+.especificacion-card:nth-child(3) { animation-delay: 0.5s; }
+.especificacion-card:nth-child(4) { animation-delay: 0.6s; }
