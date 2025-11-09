@@ -1,252 +1,389 @@
 <!-- templates/checkout.html -->
 {% extends "base.html" %}
 
-{% block title %}Finalizar Compra - Ecoa{% endblock %}
+{% block title %}Checkout - Ecoa{% endblock %}
 
 {% block styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/checkout.css') }}">
 {% endblock %}
 
 {% block content %}
-<div class="checkout-wrapper">
-    <!-- ENCABEZADO VERDE -->
-    <div class="checkout-header">
-        <p>Tu pedido sostenible está a un paso de convertirse en realidad 🌿</p>
-    </div>
-
-    <!-- PASOS (Progress Bar) -->
-    <div class="checkout-steps">
-        <div class="step active">
+<div class="checkout-container">
+    <!-- BARRA DE PROGRESO -->
+    <div class="checkout-progress">
+        <div class="progress-step active" id="step1">
             <div class="step-number">1</div>
-            <div class="step-label">Dirección</div>
+            <div class="step-label">Carrito y Datos</div>
         </div>
-        <div class="step">
+        <div class="progress-step" id="step2">
             <div class="step-number">2</div>
-            <div class="step-label">Entrega</div>
+            <div class="step-label">Instrucciones de Pago</div>
         </div>
-        <div class="step">
+        <div class="progress-step" id="step3">
             <div class="step-number">3</div>
-            <div class="step-label">Pago</div>
+            <div class="step-label">Confirmación</div>
         </div>
     </div>
 
-    <!-- FORMULARIO -->
-    <form method="POST" id="checkout-form">
-        <!-- PASO 1: DIRECCIÓN -->
-        <div class="checkout-section">
-            <h3>Dirección de Entrega</h3>
-
-            <div class="form-group">
-                <label for="province">Provincia</label>
-                <select id="province" name="province" required onchange="updateCities()">
-                    <option value="">Selecciona tu provincia</option>
-                    <option value="Azuay">Azuay</option>
-                    <option value="Bolívar">Bolívar</option>
-                    <option value="Cañar">Cañar</option>
-                    <option value="Carchi">Carchi</option>
-                    <option value="Chimborazo">Chimborazo</option>
-                    <option value="Cotopaxi">Cotopaxi</option>
-                    <option value="El Oro">El Oro</option>
-                    <option value="Esmeraldas">Esmeraldas</option>
-                    <option value="Galápagos">Galápagos</option>
-                    <option value="Guayas">Guayas</option>
-                    <option value="Imbabura">Imbabura</option>
-                    <option value="Loja" selected>Loja</option>
-                    <option value="Los Ríos">Los Ríos</option>
-                    <option value="Manabí">Manabí</option>
-                    <option value="Morona Santiago">Morona Santiago</option>
-                    <option value="Napo">Napo</option>
-                    <option value="Orellana">Orellana</option>
-                    <option value="Pastaza">Pastaza</option>
-                    <option value="Pichincha">Pichincha</option>
-                    <option value="Santa Elena">Santa Elena</option>
-                    <option value="Santo Domingo de los Tsáchilas">Santo Domingo</option>
-                    <option value="Sucumbíos">Sucumbíos</option>
-                    <option value="Tungurahua">Tungurahua</option>
-                    <option value="Zamora Chinchipe">Zamora Chinchipe</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="city">Ciudad</label>
-                <select id="city" name="city" required>
-                    <option value="">Selecciona tu ciudad</option>
-                    <option value="Loja">Loja</option>
-                    <option value="Catamayo">Catamayo</option>
-                    <option value="Zamora">Zamora</option>
-                    <option value="Cuenca">Cuenca</option>
-                    <option value="Quito">Quito</option>
-                    <option value="Guayaquil">Guayaquil</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="neighborhood">Barrio / Sector</label>
-                <input type="text" id="neighborhood" name="neighborhood" placeholder="Ej. Centro, Jipiro, La Floresta" required>
-            </div>
-
-            <div class="form-group">
-                <label for="address">Dirección exacta</label>
-                <input type="text" id="address" name="address" placeholder="Ej. Calle Sucre N24-45 entre Bolívar y 10 de Agosto" required>
-            </div>
-
-            <div class="form-group">
-                <label for="building">Referencia / Casa / Edificio</label>
-                <input type="text" id="building" name="building" placeholder="Ej. Casa color verde, Edificio Los Álamos, Apt 302">
-            </div>
-        </div>
-
-        <!-- PASO 2: ENTREGA -->
-        <div class="checkout-section">
-            <h3>Opción de Entrega</h3>
-
-            <div class="delivery-options">
-                <div class="delivery-option">
-                    <input type="radio" id="delivery_home" name="delivery_method" value="home" checked>
-                    <label for="delivery_home">
-                        <i class="fas fa-shipping-fast"></i>
-                        <div class="option-content">
-                            <strong>Envío a domicilio</strong>
-                            <p>Llega entre el {{ delivery_start }} y {{ delivery_end }}</p>
-                        </div>
-                        <span class="price">$5.00</span>
-                    </label>
+    <!-- ETAPA 1: CARRITO Y DATOS -->
+    <div class="checkout-stage active" id="stage1">
+        <h2 class="stage-title">Carrito y Datos del Comprador</h2>
+        
+        <div class="cart-summary">
+            {% for item in cart_items %}
+            <div class="cart-item-checkout">
+                <div class="item-image-checkout">
+                    {% if item.image %}
+                    <img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
+                    {% else %}
+                    <div class="no-image">🖼️</div>
+                    {% endif %}
                 </div>
-
-                <div class="delivery-option">
-                    <input type="radio" id="delivery_pickup" name="delivery_method" value="pickup">
-                    <label for="delivery_pickup">
-                        <i class="fas fa-store"></i>
-                        <div class="option-content">
-                            <strong>Recoger en tienda</strong>
-                            <p>En nuestro taller en Loja (Centro)</p>
-                        </div>
-                        <span class="price">Gratis</span>
-                    </label>
+                <div class="item-name-checkout">
+                    <strong>{{ item.name }}</strong>
+                </div>
+                <div class="item-quantity-checkout">
+                    Cantidad: {{ item.quantity }}
+                </div>
+                <div class="item-price-checkout">
+                    ${{ "%.2f"|format(item.price * item.quantity) }}
+                </div>
+            </div>
+            {% endfor %}
+            
+            <div class="cart-totals">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span>${{ "%.2f"|format(subtotal) }}</span>
+                </div>
+                <div class="total-row">
+                    <span>Envío:</span>
+                    <span id="shipping-cost">$0.00</span>
+                </div>
+                <div class="total-row total-final">
+                    <span>Total:</span>
+                    <span id="total-amount">${{ "%.2f"|format(total) }}</span>
                 </div>
             </div>
         </div>
 
-        <!-- PASO 3: PAGO -->
-        <div class="checkout-section">
-            <h3>Método de Pago</h3>
-
-            <div class="payment-methods">
-                <div class="payment-method">
-                    <input type="radio" id="pagoefectivo" name="payment_method" value="efectivo" checked>
-                    <label for="pagoefectivo">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <span>Pago en efectivo (al recibir)</span>
-                    </label>
-                </div>
-                <div class="payment-method">
-                    <input type="radio" id="transferencia" name="payment_method" value="transferencia">
-                    <label for="transferencia">
-                        <i class="fas fa-exchange-alt"></i>
-                        <span>Transferencia bancaria</span>
-                    </label>
-                </div>
-                <div class="payment-method">
-                    <input type="radio" id="pichincha" name="payment_method" value="pichincha">
-                    <label for="pichincha">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>Pichincha Transfer</span>
-                    </label>
-                </div>
-                <div class="payment-method">
-                    <input type="radio" id="daviplata" name="payment_method" value="daviplata">
-                    <label for="daviplata">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>Daviplata (Banco Davivienda)</span>
-                    </label>
-                </div>
-                <div class="payment-method">
-                    <input type="radio" id="nequi" name="payment_method" value="nequi">
-                    <label for="nequi">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>Nequi (solo para compras en línea)</span>
-                    </label>
+        <form id="customer-form">
+            <div class="shipping-toggle">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="needs-shipping" name="needs_shipping">
+                    <label for="needs-shipping" class="form-label">¿Necesitas envío?</label>
                 </div>
             </div>
 
-            <!-- RESUMEN -->
-            <div class="payment-summary">
-                <h4>Resumen de tu compra</h4>
-                <div class="summary-item">
-                    <span>Productos ({{ cart_items|length }})</span>
-                    <span>${{ "%.2f"|format(total) }}</span>
-                </div>
-                <div class="summary-item">
-                    <span>Envío</span>
-                    <span id="shipping-amount">$5.00</span>
-                </div>
-                <div class="summary-total">
-                    <span><strong>Total</strong></span>
-                    <span id="total-amount">${{ "%.2f"|format(total + 5.00) }}</span>
-                </div>
+            <div class="form-group">
+                <label for="fullname" class="form-label">Nombre completo *</label>
+                <input type="text" id="fullname" name="fullname" class="form-control" required>
             </div>
 
-            <div class="terms-section">
-                <input type="checkbox" id="terms" required>
-                <label for="terms">Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a>.</label>
+            <div class="form-group">
+                <label for="phone" class="form-label">Número de contacto *</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn-primary">Confirmar Pedido</button>
+            <div class="form-group">
+                <label for="city" class="form-label">Ciudad *</label>
+                <input type="text" id="city" name="city" class="form-control" required>
+            </div>
+
+            <div class="form-group shipping-field" style="display: none;">
+                <label for="address" class="form-label">Dirección *</label>
+                <input type="text" id="address" name="address" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="instructions" class="form-label">Instrucciones adicionales (opcional)</label>
+                <textarea id="instructions" name="instructions" class="form-control" rows="3"></textarea>
+            </div>
+        </form>
+
+        <div class="checkout-navigation">
+            <a href="{{ url_for('cart') }}" class="btn-prev">← Volver al Carrito</a>
+            <button class="btn-next" onclick="nextStage(1)">Siguiente →</button>
         </div>
-    </form>
+    </div>
+
+    <!-- ETAPA 2: INSTRUCCIONES DE PAGO -->
+    <div class="checkout-stage" id="stage2">
+        <h2 class="stage-title">Instrucciones de Pago</h2>
+        
+        <div class="order-summary">
+            <h3 class="summary-title">Resumen de tu pedido</h3>
+            <div id="order-summary-content">
+                <!-- Se llena con JavaScript -->
+            </div>
+        </div>
+
+        <div class="payment-instructions">
+            <h3 class="instructions-title">Cómo realizar el pago:</h3>
+            <ol>
+                <li><strong>Consigna el valor total a este número:</strong> +593 98 909 6259</li>
+                <li><strong>Importante:</strong> Incluye tu código de pedido en la descripción del pago para identificarlo rápidamente.</li>
+                <li>Una vez realizado el pago, continúa al siguiente paso para finalizar tu compra.</li>
+            </ol>
+
+            <div class="order-code">
+                <div class="code-label">Tu código de pedido es:</div>
+                <div id="order-code">{{ order_code }}</div>
+            </div>
+        </div>
+
+        <div class="checkout-navigation">
+            <button class="btn-prev" onclick="prevStage(2)">← Volver</button>
+            <button class="btn-next" onclick="nextStage(2)">Siguiente →</button>
+        </div>
+    </div>
+
+    <!-- ETAPA 3: CONFIRMACIÓN -->
+    <div class="checkout-stage" id="stage3">
+        <h2 class="stage-title">¡Ya casi es tuyo!</h2>
+        
+        <div class="confirmation-message">
+            <div class="confirmation-icon">🎉</div>
+            <h3>¡Gracias por tu compra!</h3>
+            <p>Tu pedido ha sido procesado correctamente.</p>
+            
+            <div class="order-code" style="background: var(--primary); margin: 30px auto; max-width: 300px;">
+                <div class="code-label">Código de pedido:</div>
+                <div id="final-order-code">{{ order_code }}</div>
+            </div>
+            
+            <div style="margin: 30px 0;">
+                <button class="download-receipt" onclick="downloadReceipt()">
+                    📄 Descargar recibo (JPG)
+                </button>
+                <a href="#" class="finalize-purchase" id="whatsapp-finalize">
+                    ✅ Finalizar compra
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-    // Fechas dinámicas de entrega (hoy + 3 a 5 días)
-    const today = new Date();
-    const start = new Date(today);
-    start.setDate(today.getDate() + 3);
-    const end = new Date(today);
-    end.setDate(today.getDate() + 5);
+// Variables globales
+let currentStage = 1;
+let orderData = {
+    orderCode: "{{ order_code }}",
+    customer: {}
+};
+const cartItems = {{ cart_items | tojson }};
+const subtotal = {{ subtotal }};
 
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.querySelectorAll('.delivery-option p').forEach((el, i) => {
-        if (i === 0) {
-            el.innerHTML = `Llega entre el <strong>${start.getDate()} de ${start.toLocaleString('es-ES', { month: 'long' })}</strong> y <strong>${end.getDate()} de ${end.toLocaleString('es-ES', { month: 'long' })}</strong>`;
-        }
-    });
-
-    // Actualizar ciudades según provincia
-    function updateCities() {
-        const province = document.getElementById('province').value;
-        const citySelect = document.getElementById('city');
-        citySelect.innerHTML = '<option value="">Selecciona tu ciudad</option>';
-
-        let cities = [];
-        if (province === 'Pichincha') {
-            cities = ['Quito', 'Cayambe', 'Machachi', 'Santo Domingo'];
-        } else if (province === 'Guayas') {
-            cities = ['Guayaquil', 'Samborondón', 'Durán', 'Milagro'];
-        } else if (province === 'Azuay') {
-            cities = ['Cuenca', 'Gualaceo', 'Paute'];
-        } else if (province === 'Loja') {
-            cities = ['Loja', 'Catamayo', 'Zamora'];
-        } else {
-            cities = ['Otra ciudad'];
-        }
-
-        cities.forEach(city => {
-            const option = document.createElement('option');
-            option.value = city;
-            option.textContent = city;
-            citySelect.appendChild(option);
-        });
+// Navegación entre etapas
+function nextStage(fromStage) {
+    if (fromStage === 1 && !validateStage1()) {
+        return;
     }
-
-    // Actualizar total si se elige retiro en tienda
-    document.querySelectorAll('input[name="delivery_method"]').forEach(radio => {
-        radio.addEventListener('change', () => {
-            const isPickup = radio.value === 'pickup';
-            const shipping = isPickup ? 0 : 5;
-            const newTotal = {{ "%.2f"|format(total) }} + shipping;
-            document.getElementById('shipping-amount').textContent = isPickup ? 'Gratis' : '$5.00';
-            document.getElementById('total-amount').textContent = '$' + newTotal.toFixed(2);
-        });
+    
+    // Actualizar barra de progreso
+    document.querySelectorAll('.progress-step').forEach((step, index) => {
+        step.classList.remove('active', 'completed');
+        if (index + 1 < fromStage + 1) {
+            step.classList.add('completed');
+        } else if (index + 1 === fromStage + 1) {
+            step.classList.add('active');
+        }
     });
+    
+    // Cambiar etapa visible
+    document.querySelectorAll('.checkout-stage').forEach(stage => {
+        stage.classList.remove('active');
+    });
+    document.getElementById(`stage${fromStage + 1}`).classList.add('active');
+    
+    currentStage = fromStage + 1;
+    
+    // Preparar datos para siguientes etapas
+    if (fromStage === 1) {
+        prepareStage2();
+    } else if (fromStage === 2) {
+        prepareStage3();
+    }
+}
+
+function prevStage(fromStage) {
+    // Actualizar barra de progreso
+    document.querySelectorAll('.progress-step').forEach((step, index) => {
+        step.classList.remove('active', 'completed');
+        if (index + 1 < fromStage - 1) {
+            step.classList.add('completed');
+        } else if (index + 1 === fromStage - 1) {
+            step.classList.add('active');
+        }
+    });
+    
+    // Cambiar etapa visible
+    document.querySelectorAll('.checkout-stage').forEach(stage => {
+        stage.classList.remove('active');
+    });
+    document.getElementById(`stage${fromStage - 1}`).classList.add('active');
+    
+    currentStage = fromStage - 1;
+}
+
+// Validación etapa 1
+function validateStage1() {
+    const requiredFields = ['fullname', 'phone', 'city'];
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        const input = document.getElementById(field);
+        if (!input.value.trim()) {
+            input.style.borderColor = '#dc3545';
+            isValid = false;
+        } else {
+            input.style.borderColor = '';
+        }
+    });
+    
+    const needsShipping = document.getElementById('needs-shipping').checked;
+    if (needsShipping && !document.getElementById('address').value.trim()) {
+        document.getElementById('address').style.borderColor = '#dc3545';
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        alert('Por favor completa todos los campos obligatorios.');
+        return false;
+    }
+    
+    // Guardar datos
+    orderData.customer = {
+        fullname: document.getElementById('fullname').value,
+        phone: document.getElementById('phone').value,
+        city: document.getElementById('city').value,
+        address: document.getElementById('address').value,
+        instructions: document.getElementById('instructions').value,
+        needsShipping: needsShipping
+    };
+    
+    return true;
+}
+
+// Toggle campos de envío
+document.getElementById('needs-shipping').addEventListener('change', function() {
+    const shippingFields = document.querySelectorAll('.shipping-field');
+    shippingFields.forEach(field => {
+        field.style.display = this.checked ? 'block' : 'none';
+    });
+    
+    // Actualizar costo de envío
+    const shippingCost = this.checked ? 5.00 : 0.00;
+    document.getElementById('shipping-cost').textContent = `$${shippingCost.toFixed(2)}`;
+    
+    const totalAmount = subtotal + shippingCost;
+    document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(2)}`;
+    
+    if (orderData.customer) {
+        orderData.customer.needsShipping = this.checked;
+    }
+});
+
+// Preparar etapa 2
+function prepareStage2() {
+    const summaryContent = document.getElementById('order-summary-content');
+    
+    let html = `
+        <p><strong>Nombre:</strong> ${orderData.customer.fullname}</p>
+        <p><strong>Teléfono:</strong> ${orderData.customer.phone}</p>
+        <p><strong>Ciudad:</strong> ${orderData.customer.city}</p>
+    `;
+    
+    if (orderData.customer.needsShipping) {
+        html += `<p><strong>Dirección:</strong> ${orderData.customer.address}</p>`;
+    }
+    
+    if (orderData.customer.instructions) {
+        html += `<p><strong>Instrucciones:</strong> ${orderData.customer.instructions}</p>`;
+    }
+    
+    html += `<p><strong>Total a pagar:</strong> $${document.getElementById('total-amount').textContent.replace('$', '')}</p>`;
+    
+    summaryContent.innerHTML = html;
+}
+
+// Preparar etapa 3
+function prepareStage3() {
+    document.getElementById('final-order-code').textContent = orderData.orderCode;
+    
+    // Preparar enlace de WhatsApp
+    const productList = cartItems.map(item => 
+        `${item.name} (x${item.quantity})`
+    ).join(', ');
+    
+    const whatsappMessage = `Hola 👋, acabo de realizar mi compra en Ecoa.
+Código de pedido: ${orderData.orderCode}
+Nombre: ${orderData.customer.fullname}
+Total: ${document.getElementById('total-amount').textContent}
+Productos: ${productList}`;
+    
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    document.getElementById('whatsapp-finalize').href = 
+        `https://wa.me/593989096259?text=${encodedMessage}`;
+}
+
+// Descargar recibo - FUNCIÓN CORREGIDA
+function downloadReceipt() {
+    // Mostrar loading
+    const downloadBtn = document.querySelector('.download-receipt');
+    const originalText = downloadBtn.innerHTML;
+    downloadBtn.innerHTML = '⏳ Generando recibo...';
+    downloadBtn.disabled = true;
+    
+    // Preparar datos para el recibo
+    const formData = new FormData();
+    formData.append('fullname', orderData.customer.fullname);
+    formData.append('phone', orderData.customer.phone);
+    formData.append('city', orderData.customer.city);
+    formData.append('address', orderData.customer.address);
+    formData.append('needsShipping', orderData.customer.needsShipping);
+    formData.append('instructions', orderData.customer.instructions);
+    formData.append('order_code', orderData.orderCode);
+    formData.append('total_amount', document.getElementById('total-amount').textContent.replace('$', ''));
+    
+    // Hacer la petición directamente para descargar el archivo
+    fetch('/download_receipt', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        // Crear enlace de descarga
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = `recibo_${orderData.orderCode}.jpg`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error al generar el recibo: ' + error.message);
+    })
+    .finally(() => {
+        // Restaurar botón
+        downloadBtn.innerHTML = originalText;
+        downloadBtn.disabled = false;
+    });
+}
+
+// Inicialización
+document.addEventListener('DOMContentLoaded', function() {
+    // El código de pedido ya viene del backend
+    console.log('Checkout inicializado. Código de pedido:', orderData.orderCode);
+});
 </script>
 {% endblock %}

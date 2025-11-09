@@ -167,3 +167,10 @@ h1, h2, h3 {
         gap: 2rem;
     }
 }
+/* Oculta todos los mensajes de éxito */
+.success-message,
+.flash-message,
+.alert-success,
+.notification {
+    display: none !important;
+}

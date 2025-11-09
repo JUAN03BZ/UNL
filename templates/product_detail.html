@@ -5,25 +5,76 @@
 
 {% block styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/product_detail.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 {% endblock %}
 
 {% block content %}
-    <div class="product-detail-container">
-        <div class="product-image">
-            <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}" onerror="this.src='{{ url_for('static', filename='images/placeholder.jpg') }}'; this.onerror=null;">
+<section class="product-detail-section">
+    <div class="container">
+        <div class="product-detail-grid">
+            <!-- Imagen del producto -->
+            <div class="product-image">
+                <img src="{{ url_for('static', filename='images/' + product.image) }}" 
+                     alt="{{ product.name }}" 
+                     onerror="this.src='{{ url_for('static', filename='images/placeholder.jpg') }}'">
+            </div>
+
+            <!-- Información del producto -->
+            <div class="product-info">
+                <h1 class="product-title">{{ product.name }}</h1>
+                <p class="product-description">{{ product.description }}</p>
+                <div class="product-price">${{ product.price }}</div>
+                
+                <!-- Acciones del producto -->
+                <div class="product-actions">
+                    <form method="POST" action="{{ url_for('add_to_cart', product_id=product.id) }}" class="add-to-cart-form">
+                        <button type="submit" class="btn-add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar al Carrito
+                        </button>
+                    </form>
+                    
+                    <a href="{{ url_for('products') }}" class="btn-back">
+                        <i class="fas fa-arrow-left"></i>
+                        Volver a Productos
+                    </a>
+                </div>
+
+                <!-- Características adicionales -->
+                <div class="product-features">
+                    <div class="feature-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>Material 100% reciclado</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Resistente a la intemperie</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Envío gratis</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="product-info">
-            <h1>{{ product.name }}</h1>
-            <div class="price">${{ product.price }}</div>
-            <p class="description">{{ product.description }}</p>
-            <ul class="features">
-                {% for feature in product.features %}
-                <li>{{ feature }}</li>
-                {% endfor %}
-            </ul>
-            <form method="POST" action="{{ url_for('add_to_cart', product_id=product.id) }}">
-                <button type="submit" class="btn btn-add-to-cart">Agregar al Carrito</button>
-            </form>
+
+        <!-- Sección de características detalladas -->
+        <div class="detailed-features">
+            <h2>Características del Producto</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Sostenible</h3>
+                    <p>Fabricado con madera reciclada, contribuyendo al cuidado del medio ambiente.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Versátil</h3>
+                    <p>Ideal para interior y exterior, se adapta a cualquier espacio.</p>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 {% endblock %}
