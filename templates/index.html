@@ -12,13 +12,105 @@
     <section class="hero">
         <img src="{{ url_for('static', filename='images/hero1.jpg') }}" alt="Jardín con materas Ecoa" class="hero-img">
         <div class="hero-content fade-in">
-            <h1 class="hero-title">Diseño funcional con impacto sostenible</h1>
-            <p class="hero-subtitle">Cultiva belleza, eleva tu espacio y repite la armonía con la naturaleza.</p>
-            <a href="{{ url_for('products') }}" class="btn">Explorar Macetas</a>
-            <a href="{{ url_for('about') }}" class="btn btn-secondary" style="margin-left: 10px;">Conoce Nuestra Misión</a>
+            <div class="logo-section">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Ecoa Logo" class="hero-logo">
+            </div>
+            <h1 class="hero-title">Eleva, cultiva y repite</h1>
+            <p class="hero-subtitle">Diseñamos materas que conectan tu hogar con la naturaleza, combinando tradición artesanal con diseño moderno.</p>
+            
+            <div class="hero-buttons">
+                <a href="{{ url_for('products') }}" class="btn">Explorar Macetas</a>
+                <a href="{{ url_for('about') }}" class="btn btn-secondary">Conoce Nuestra Misión</a>
+            </div>
+
+            <!-- BADGES TRANSPARENTES CON TEXTO BLANCO - MÁS PEQUEÑOS -->
+            <div class="hero-badges">
+                <div class="badge-card">
+                    <div class="badge-content">
+                        <h3>100%</h3>
+                        <p>Artesanal</p>
+                    </div>
+                </div>
+                <div class="badge-card">
+                    <div class="badge-content">
+                        <div class="recycle-icon">♻️</div>
+                        <p>Eco-Friendly</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="why-choose-content">
+                <h2 class="section-title">¿Por qué elegirnos?</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Durabilidad y calidad</h3>
+                            <p>Contenedores resistentes, fabricados con madera reciclada de alta calidad.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Diseño funcional</h3>
+                            <p>Versátiles y prácticos, ideales para hogares, oficinas, jardines o comercios.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-recycle"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Sostenibilidad accesible</h3>
+                            <p>Reutilizamos madera reciclada, reduciendo residuos y promoviendo la economía circular.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Compromiso ambiental</h3>
+                            <p>Al elegir nuestras productos, apoyamos el reciclaje y la conservación de recursos naturales.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Libres de hongos y bacterias</h3>
+                            <p>Materiales tratados que previenen el crecimiento de microorganismos dañinos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Alta resistencia y durabilidad</h3>
+                            <p>Diseñadas para durar, manteniendo su belleza y funcionalidad con el tiempo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- CTA SECTION -->
     <section class="cta-section">
@@ -26,7 +118,6 @@
             <div class="cta-content">
                 <h2>¿Listo para encontrar tu planta perfecta?</h2>
                 <p>Responde unas preguntas y te recomendaremos la matera ideal según tu estilo y espacio.</p>
-                <!-- ✅ ESTA ES LA LÍNEA QUE DEBES CAMBIAR -->
                 <a href="{{ url_for('perfect_plant') }}" class="btn">Haz el Quiz →</a>
             </div>
         </div>
