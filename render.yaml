@@ -6,7 +6,7 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
     envVars:
+      - key: MYSQL_URL
+        value: mysql://root:QOEiAozgzsqHcnhqjBXZAmuvisDKDtpj@mysql.railway.internal:3306/railway
       - key: SECRET_KEY
-        generateValue: true
-      - key: DATABASE_URL
-        sync: false
+        value: tu-clave-secreta-muy-segura-2025
