@@ -13,8 +13,21 @@ import joblib
 # ================= CONFIGURACIÓN INICIAL =================
 pymysql.install_as_MySQLdb()
 app = Flask(__name__)
+
+# Configuración para producción (Render/Railway)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'Contraseña2025')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/ecoa'
+
+# Configuración de base de datos para producción
+database_url = os.environ.get('DATABASE_URL')
+if database_url:
+    # Para PostgreSQL en Render/Railway (reemplaza mysql por postgresql)
+    if database_url.startswith('postgres://'):
+        database_url = database_url.replace('postgres://', 'postgresql://', 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+else:
+    # Base de datos local para desarrollo
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/ecoa'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -578,6 +591,7 @@ def generate_simple_receipt(order_data, cart_items, total_amount):
     img_io.seek(0)
     
     return img_io, f"recibo_ecoa_{order_data['order_code']}.jpg"
+
 # ================= RUTAS PRINCIPALES =================
 @app.route('/')
 def index():
@@ -869,10 +883,13 @@ def perfect_plant():
         
         return render_template('perfect_plant.html', planta=planta, maceta=maceta)
     return render_template('plant_quiz.html')
+
 # ================= INICIO DE APP =================
 with app.app_context():
     db.create_all()
 
+# Configuración para producción
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
     os.makedirs('static/receipts', exist_ok=True)
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port, debug=False)
