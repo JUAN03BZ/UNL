@@ -17,12 +17,16 @@ import joblib
 pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'Contraseña2025') 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-    'MYSQL_URL', 
-    'mysql+pymysql://root:@localhost/ecoa'
-)
- 
+
+# Clave secreta (Render usará su propia variable si existe)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'Contraseña2025')
+
+# ============================
+# USAR SQLITE EN LUGAR DE MYSQL
+# ============================
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASE_DIR, 'ecoa.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
