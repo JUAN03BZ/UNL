@@ -1,7 +1,7 @@
 /* static/css/perfect_plant.css */
 
 .quiz-hero {
-    background: linear-gradient(135deg, #044f3b 0%, #2f9c89 100%);
+    background: linear-gradient(135deg, #4a6b52 0%, #5f8266 100%);
     padding: 100px 20px;
     text-align: center;
     color: white;
@@ -26,47 +26,56 @@
 }
 
 .quiz-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 2.8rem;
     margin-bottom: 20px;
     color: white;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
     line-height: 1.2;
+    font-weight: 700;
 }
 
 .quiz-subtitle {
     font-size: 1.2rem;
     margin-bottom: 40px;
-    color: rgba(255, 255, 255, 0.85); /* Blanco con opacidad */
+    color: rgba(255, 255, 255, 0.9);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
 }
 
 .btn-quiz {
     display: inline-block;
     padding: 15px 30px;
     background-color: white;
-    color: #044f3b; /* Verde oliva oscuro */
+    color: #5f8266;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     transition: all 0.3s ease;
     border: 2px solid white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.1rem;
 }
 
 .btn-quiz:hover {
-    background-color: #044f3b;
+    background-color: #5f8266;
     color: white;
-    border-color: #044f3b;
+    border-color: #5f8266;
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(95, 130, 102, 0.3);
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .quiz-hero {
+        padding: 80px 20px;
+    }
+    
     .quiz-title {
         font-size: 2.2rem;
     }
@@ -78,5 +87,25 @@
     .btn-quiz {
         padding: 12px 24px;
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-hero {
+        padding: 60px 15px;
+    }
+    
+    .quiz-title {
+        font-size: 1.8rem;
+    }
+    
+    .quiz-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+    
+    .btn-quiz {
+        padding: 10px 20px;
+        font-size: 0.95rem;
     }
 }

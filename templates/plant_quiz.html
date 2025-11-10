@@ -1,18 +1,101 @@
-<!-- templates/plant_quiz.html -->
 {% extends "base.html" %}
 
 {% block title %}Encuentra tu Planta Perfecta - Ecoa{% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/perfect_plant.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfect_plant.css') }}">
 {% endblock %}
 
 {% block content %}
-    <section class="quiz-hero">
-        <div class="container">
-            <h1 class="quiz-title">¿Listo para encontrar tu planta perfecta?</h1>
-            <p class="quiz-subtitle">Responde unas preguntas y te recomendaremos la matera ideal según tu estilo y espacio.</p>
-            <a href="{{ url_for('perfect_plant') }}" class="btn-quiz">Haz el Quiz →</a>
-        </div>
-    </section>
+<section class="quiz-section">
+  <div class="container quiz-container">
+    <h1 class="quiz-title">🌿 Encuentra tu planta y maceta ideal</h1>
+    <p class="quiz-subtitle">Responde unas preguntas y descubre la combinación perfecta para ti.</p>
+
+    <form method="POST" class="quiz-form">
+      <div class="form-grid">
+        <label>Espacio disponible:</label>
+        <select name="espacio" required>
+          <option>pequeño</option>
+          <option>mediano</option>
+          <option>grande</option>
+        </select>
+
+        <label>Cantidad de luz:</label>
+        <select name="luz" required>
+          <option>baja</option>
+          <option>media</option>
+          <option>alta</option>
+        </select>
+
+        <label>Tiempo semanal que puedes dedicar:</label>
+        <select name="tiempo_semanal" required>
+          <option>poco</option>
+          <option>moderado</option>
+          <option>mucho</option>
+        </select>
+
+        <label>Tu experiencia con plantas:</label>
+        <select name="experiencia" required>
+          <option>principiante</option>
+          <option>intermedio</option>
+          <option>avanzado</option>
+        </select>
+
+        <label>Tipo de planta que prefieres:</label>
+        <select name="preferencia_tipo" required>
+          <option>decorativa</option>
+          <option>verde</option>
+          <option>flores</option>
+          <option>colgante</option>
+          <option>suculenta</option>
+          <option>frutal</option>
+          <option>aromatica</option>
+        </select>
+
+        <label>¿Tienes mascotas?</label>
+        <select name="mascotas" required>
+          <option>si</option>
+          <option>no</option>
+        </select>
+
+        <label>¿Prefieres bajo mantenimiento?</label>
+        <select name="bajo_mantenimiento" required>
+          <option>si</option>
+          <option>no</option>
+        </select>
+
+        <label>Tipo de maceta preferida:</label>
+        <select name="pref_maceta" required>
+          <option>mini</option>
+          <option>colgante</option>
+          <option>expandible</option>
+        </select>
+
+        <label>¿Te interesa riego automático?</label>
+        <select name="riego_auto" required>
+          <option>si</option>
+          <option>no</option>
+        </select>
+
+        <label>Presupuesto disponible:</label>
+        <select name="presupuesto" required>
+          <option>bajo</option>
+          <option>medio</option>
+          <option>alto</option>
+        </select>
+
+        <label>Clima de tu zona:</label>
+        <select name="clima" required>
+          <option>frío</option>
+          <option>templado</option>
+          <option>tropical</option>
+          <option>cálido</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-quiz">Descubrir mi planta ideal →</button>
+    </form>
+  </div>
+</section>
 {% endblock %}

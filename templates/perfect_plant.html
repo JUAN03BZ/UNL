@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Tu Planta Ideal - Ecoa{% endblock %}
+
+{% block content %}
+<section class="result-section">
+  <div class="container result-container">
+    <h1 class="result-title">✨ ¡Tu combinación perfecta!</h1>
+
+    <div class="result-card">
+      <h2>🌿 Planta recomendada: <span>{{ planta }}</span></h2>
+      <h3>🪴 Maceta ideal: <span>{{ maceta }}</span></h3>
+    </div>
+
+    <div class="result-actions">
+      <a href="{{ url_for('products') }}" class="btn">Ver macetas disponibles</a>
+      <a href="{{ url_for('perfect_plant') }}" class="btn btn-outline">Hacer el quiz otra vez</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -9,72 +9,82 @@
 {% endblock %}
 
 {% block content %}
-<section class="product-detail-section">
-    <div class="container">
-        <div class="product-detail-grid">
-            <!-- Imagen del producto -->
-            <div class="product-image">
-                <img src="{{ url_for('static', filename='images/' + product.image) }}" 
-                     alt="{{ product.name }}" 
-                     onerror="this.src='{{ url_for('static', filename='images/placeholder.jpg') }}'">
-            </div>
+    <section class="product-detail-section">
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="success-message {{ category }}">
+                            <h3>¡Éxito!</h3>
+                            <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
 
-            <!-- Información del producto -->
-            <div class="product-info">
-                <h1 class="product-title">{{ product.name }}</h1>
-                <p class="product-description">{{ product.description }}</p>
-                <div class="product-price">${{ product.price }}</div>
-                
-                <!-- Acciones del producto -->
-                <div class="product-actions">
-                    <form method="POST" action="{{ url_for('add_to_cart', product_id=product.id) }}" class="add-to-cart-form">
-                        <button type="submit" class="btn-add-to-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            Agregar al Carrito
-                        </button>
-                    </form>
-                    
-                    <a href="{{ url_for('products') }}" class="btn-back">
-                        <i class="fas fa-arrow-left"></i>
-                        Volver a Productos
-                    </a>
+            <div class="product-detail-grid">
+                <!-- CONTENEDOR DE IMAGEN MEJORADO -->
+                <div class="product-image-container">
+                    <img src="{{ url_for('static', filename='images/' + product.image) }}" 
+                         alt="{{ product.name }}"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="no-image" style="display: none;">
+                        <i class="fas fa-image"></i>
+                        <span>Imagen no disponible</span>
+                    </div>
                 </div>
 
-                <!-- Características adicionales -->
-                <div class="product-features">
-                    <div class="feature-item">
+                <div class="product-info">
+                    <h1 class="product-title">{{ product.name }}</h1>
+                    <p class="product-description">{{ product.description }}</p>
+                    <div class="product-price">${{ product.price }}</div>
+
+                    <div class="product-actions">
+                        <form method="POST" action="{{ url_for('add_to_cart', product_id=product.id) }}" class="add-to-cart-form">
+                            <button type="submit" class="btn-add-to-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                Agregar al Carrito
+                            </button>
+                        </form>
+                        <a href="{{ url_for('products') }}" class="btn-back">
+                            <i class="fas fa-arrow-left"></i>
+                            Volver a Productos
+                        </a>
+                    </div>
+
+                    <div class="product-features">
+                        {% for feature in product.features %}
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>{{ feature }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN DE CARACTERÍSTICAS DETALLADAS -->
+            <div class="detailed-features">
+                <h2>Características Destacadas</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
                         <i class="fas fa-leaf"></i>
-                        <span>Material 100% reciclado</span>
+                        <h3>Ecológico</h3>
+                        <p>Fabricado con materiales 100% sostenibles y respetuosos con el medio ambiente.</p>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Resistente a la intemperie</span>
+                    <div class="feature-card">
+                        <i class="fas fa-award"></i>
+                        <h3>Calidad Premium</h3>
+                        <p>Diseñado para durar, con los más altos estándares de calidad y durabilidad.</p>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-truck"></i>
-                        <span>Envío gratis</span>
+                    <div class="feature-card">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h3>Envío Rápido</h3>
+                        <p>Recibe tu producto en perfectas condiciones y en el menor tiempo posible.</p>
                     </div>
+                    
                 </div>
             </div>
         </div>
-
-        <!-- Sección de características detalladas -->
-        <div class="detailed-features">
-            <h2>Características del Producto</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-recycle"></i>
-                    <h3>Sostenible</h3>
-                    <p>Fabricado con madera reciclada, contribuyendo al cuidado del medio ambiente.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <i class="fas fa-home"></i>
-                    <h3>Versátil</h3>
-                    <p>Ideal para interior y exterior, se adapta a cualquier espacio.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
