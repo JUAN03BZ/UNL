@@ -4,25 +4,42 @@
 /* Tipografía */
 /* ------------------ */
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: #2c3e2f;
     line-height: 1.6;
 }
 
 h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     font-weight: 700;
 }
 
 /* ------------------ */
-/* Hero - FONDO VERDE OSCURO, TEXTO BLANCO */
+/* Hero - FONDO VERDE PRINCIPAL, TEXTO BLANCO */
 /* ------------------ */
 .about-hero-dark {
-    background-color: #044f3b; /* Verde oscuro principal */
+    background: linear-gradient(135deg, #4a6b52 0%, #5f8266 100%);
     padding: 6rem 0;
     text-align: center;
     margin-bottom: 3rem;
     color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero-dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.about-hero-dark .container {
+    position: relative;
+    z-index: 2;
 }
 
 .about-hero-dark .about-title {
@@ -30,13 +47,15 @@ h1, h2, h3 {
     color: white;
     margin: 0;
     letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .about-hero-dark .about-subtitle {
     font-size: 1.2rem;
-    color: #dcedc8; /* Verde claro suave */
+    color: #f0f7f2;
     margin-top: 1rem;
     font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* ------------------ */
@@ -60,86 +79,167 @@ h1, h2, h3 {
 }
 
 .bg-light {
-    background-color: #fafafa;
+    background-color: #f8faf8;
 }
 
 .bg-accent {
-    background-color: #044f3b;
+    background: linear-gradient(135deg, #5f8266 0%, #7a9a7f 100%);
     color: white;
     padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.bg-accent .container {
+    position: relative;
+    z-index: 2;
 }
 
 .section-title {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #044f3b;
+    color: #5f8266;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #5f8266, #7a9a7f);
+    border-radius: 2px;
+}
+
+.bg-accent .section-title {
+    color: white;
+}
+
+.bg-accent .section-title::after {
+    background: linear-gradient(135deg, #ffffff, #f0f7f2);
 }
 
 .about-text {
     font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #2c3e2f;
+    line-height: 1.7;
+}
+
+.bg-accent .about-text {
+    color: #f0f7f2;
 }
 
 .name-breakdown {
     list-style: none;
     padding: 0;
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 1.5rem 0;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .name-breakdown li {
-    background: #e8f5e9;
-    padding: 0.6rem 1.2rem;
-    border-radius: 30px;
+    background: linear-gradient(135deg, #5f8266, #7a9a7f);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
     font-weight: 600;
-    color: #044f3b;
-    border: 1px solid #c8e6c9;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(95, 130, 102, 0.2);
+    transition: all 0.3s ease;
+}
+
+.name-breakdown li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(95, 130, 102, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* ------------------ */
-/* Beneficios */
+/* Beneficios - ICONOS BLANCOS */
 /* ------------------ */
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
 .benefit-card {
     background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e8f5e9;
+    transition: all 0.3s ease;
+    border: 1px solid #e1e8e1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #5f8266, #7a9a7f);
 }
 
 .benefit-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    border-color: #c8e6c9;
+    box-shadow: 0 12px 30px rgba(95, 130, 102, 0.15);
+    border-color: #5f8266;
+}
+
+.benefit-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.8rem auto;
+    background: linear-gradient(135deg, #5f8266, #7a9a7f);
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 .benefit-icon i {
-    font-size: 2.5rem;
-    color: #fdfdfd; /* Verde oscuro */
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.bg-accent .benefit-icon i {
+    font-size: 2rem;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
 }
 
-.benefit-card h3 {
-    font-size: 1.4rem;
-    margin: 1rem 0 0.8rem;
-    color: #044f3b;
+.benefit-card:hover .benefit-icon {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(95, 130, 102, 0.3);
+}
+
+.benefit-card:hover .benefit-icon i {
+    transform: scale(1.1);
 }
 
 /* ------------------ */
@@ -148,14 +248,17 @@ h1, h2, h3 {
 .slogan {
     font-size: 2.2rem;
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .slogan-desc {
     font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto;
-    color: #dcedc8;
+    color: #f0f7f2;
+    line-height: 1.7;
 }
 
 /* ------------------ */
@@ -172,20 +275,95 @@ h1, h2, h3 {
     transform: translateY(0);
 }
 
+/* Efectos de hover suaves */
+.benefit-card, .name-breakdown li {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ------------------ */
 /* Responsive */
 /* ------------------ */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 900px;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
+    .about-hero-dark {
+        padding: 4rem 0;
+    }
+    
     .about-hero-dark .about-title {
         font-size: 2.2rem;
     }
+    
+    .about-hero-dark .about-subtitle {
+        font-size: 1.1rem;
+    }
+    
     .section-title {
         font-size: 1.7rem;
     }
+    
     .slogan {
         font-size: 1.8rem;
     }
+    
     .benefits-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .benefit-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .name-breakdown {
+        gap: 0.8rem;
+    }
+    
+    .name-breakdown li {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero-dark {
+        padding: 3rem 0;
+    }
+    
+    .about-hero-dark .about-title {
+        font-size: 1.8rem;
+    }
+    
+    .about-section {
+        padding: 2.5rem 0;
+    }
+    
+    .bg-accent {
+        padding: 3rem 0;
+    }
+    
+    .slogan {
+        font-size: 1.5rem;
+    }
+    
+    .slogan-desc {
+        font-size: 1rem;
+    }
+    
+    .benefit-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .benefit-icon i {
+        font-size: 2.2rem;
     }
 }

@@ -1,111 +1,310 @@
 /* static/css/perfect_plant.css */
 
-.quiz-hero {
-    background: linear-gradient(135deg, #4a6b52 0%, #5f8266 100%);
-    padding: 100px 20px;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
+:root {
+    --primary-color: #5f8266;
+    --primary-light: #7a9a7f;
+    --primary-dark: #4a6b52;
+    --secondary-color: #a8c5b0;
+    --accent-color: #f0f7f2;
+    --text-dark: #2c3e2f;
+    --text-light: #5d725f;
+    --white: #ffffff;
+    --gray-light: #f8faf8;
+    --gray-border: #e1e8e1;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s ease;
 }
 
-.quiz-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: 1;
+.quiz-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8faf8 0%, #f0f7f2 100%);
+    min-height: 100vh;
 }
 
-.quiz-hero .container {
-    position: relative;
-    z-index: 2;
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 .quiz-title {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    color: white;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-    line-height: 1.2;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 1rem;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .quiz-subtitle {
     font-size: 1.2rem;
-    margin-bottom: 40px;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1.6;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-form {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-border);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.form-grid label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    grid-column: 1 / -1;
+}
+
+.form-grid select {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 2px solid var(--gray-border);
+    border-radius: 12px;
+    font-size: 1rem;
     font-family: 'Segoe UI', system-ui, sans-serif;
-    line-height: 1.6;
+    background: var(--white);
+    color: var(--text-dark);
+    transition: var(--transition);
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f8266' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.form-grid select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(95, 130, 102, 0.1);
+}
+
+.form-grid select:hover {
+    border-color: var(--primary-light);
+}
+
+/* Estilos para opciones del select */
+.form-grid select option {
+    padding: 1rem;
+    background: var(--white);
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.form-grid select option:checked {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: var(--white);
+}
+
+.form-grid select option:hover {
+    background: var(--accent-color);
 }
 
 .btn-quiz {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: white;
-    color: #5f8266;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 2px solid white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: var(--white);
+    border: none;
+    padding: 1.2rem 2rem;
+    border-radius: 50px;
     font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(95, 130, 102, 0.3);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.btn-quiz::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 .btn-quiz:hover {
-    background-color: #5f8266;
-    color: white;
-    border-color: #5f8266;
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(95, 130, 102, 0.3);
+    box-shadow: 0 8px 25px rgba(95, 130, 102, 0.4);
 }
 
-/* RESPONSIVE */
+.btn-quiz:hover::before {
+    left: 100%;
+}
+
+.btn-quiz:active {
+    transform: translateY(-1px);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quiz-form {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.form-grid label,
+.form-grid select {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+/* Aplicar delays escalonados para las animaciones */
+.form-grid label:nth-child(1) { animation-delay: 0.1s; }
+.form-grid select:nth-child(2) { animation-delay: 0.2s; }
+.form-grid label:nth-child(3) { animation-delay: 0.3s; }
+.form-grid select:nth-child(4) { animation-delay: 0.4s; }
+.form-grid label:nth-child(5) { animation-delay: 0.5s; }
+.form-grid select:nth-child(6) { animation-delay: 0.6s; }
+.form-grid label:nth-child(7) { animation-delay: 0.7s; }
+.form-grid select:nth-child(8) { animation-delay: 0.8s; }
+.form-grid label:nth-child(9) { animation-delay: 0.9s; }
+.form-grid select:nth-child(10) { animation-delay: 1.0s; }
+.form-grid label:nth-child(11) { animation-delay: 1.1s; }
+.form-grid select:nth-child(12) { animation-delay: 1.2s; }
+.form-grid label:nth-child(13) { animation-delay: 1.3s; }
+.form-grid select:nth-child(14) { animation-delay: 1.4s; }
+.form-grid label:nth-child(15) { animation-delay: 1.5s; }
+.form-grid select:nth-child(16) { animation-delay: 1.6s; }
+.form-grid label:nth-child(17) { animation-delay: 1.7s; }
+.form-grid select:nth-child(18) { animation-delay: 1.8s; }
+.form-grid label:nth-child(19) { animation-delay: 1.9s; }
+.form-grid select:nth-child(20) { animation-delay: 2.0s; }
+.form-grid label:nth-child(21) { animation-delay: 2.1s; }
+.form-grid select:nth-child(22) { animation-delay: 2.2s; }
+
+.btn-quiz {
+    animation: fadeInUp 0.8s ease-out 2.3s both;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .quiz-hero {
-        padding: 80px 20px;
+    .quiz-section {
+        padding: 2rem 0;
+    }
+    
+    .quiz-container {
+        padding: 0 1rem;
     }
     
     .quiz-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
-
+    
     .quiz-subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
-
+    
+    .quiz-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .form-grid {
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .form-grid label {
+        font-size: 0.95rem;
+    }
+    
+    .form-grid select {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    
     .btn-quiz {
-        padding: 12px 24px;
+        padding: 1rem 1.5rem;
         font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .quiz-hero {
-        padding: 60px 15px;
-    }
-    
     .quiz-title {
         font-size: 1.8rem;
     }
     
     .quiz-subtitle {
-        font-size: 0.95rem;
-        margin-bottom: 30px;
+        font-size: 1rem;
     }
     
-    .btn-quiz {
-        padding: 10px 20px;
-        font-size: 0.95rem;
+    .quiz-form {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
     }
+    
+    .form-grid {
+        gap: 0.8rem;
+    }
+    
+    .form-grid select {
+        padding: 0.7rem 0.9rem;
+        border-radius: 10px;
+    }
+}
+
+/* Efectos de focus mejorados */
+.form-grid select:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Estados de carga */
+.btn-quiz.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-quiz.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -1,151 +1,301 @@
-id,espacio,luz,tiempo_semanal,experiencia,preferencia_tipo,mascotas,bajo_mantenimiento,pref_maceta,riego_auto,presupuesto,clima,label_planta,label_maceta
-1,balcón,baja,mucho,intermedio,suculenta,si,no,colgante,no,bajo,frio,Helecho Nephrolepis,Maceta Colgante Eco
-2,exterior,alta,poco,principiante,verde,si,no,colgante,si,medio,tropical,Helecho de Boston,Maceta Colgante Eco
-3,balcón,baja,moderado,principiante,colgante,si,si,colgante,no,alto,frio,Petunia,Maceta Colgante Eco
-4,interior,media,poco,intermedio,colgante,no,no,colgante,no,bajo,templado,Sansevieria (Lengua de suegra),Maceta Mini Eco
-5,terraza,alta,poco,intermedio,decorativa,no,si,mini,si,alto,templado,Orquídea Phalaenopsis,Maceta Expandible Eco
-6,terraza,baja,poco,principiante,suculenta,no,si,colgante,no,bajo,templado,Suculenta,Maceta Mini Eco
-7,balcón,media,poco,principiante,aromatica,si,no,expandible,si,bajo,templado,Zamioculca,Maceta Mini Eco
-8,exterior,baja,poco,avanzado,colgante,si,no,colgante,si,bajo,tropical,Albahaca,Maceta Mini Eco
-9,terraza,media,mucho,avanzado,decorativa,si,si,colgante,si,bajo,calido,Cactus,Maceta Mini Eco
-10,balcón,alta,poco,principiante,frutal,si,si,colgante,si,alto,frio,Lavanda,Maceta Expandible Eco
-11,exterior,alta,mucho,avanzado,colgante,si,no,colgante,si,alto,tropical,Peperomia,Maceta Mini Eco
-12,exterior,alta,poco,principiante,frutal,si,no,expandible,no,bajo,frio,Girasol,Maceta Expandible Eco
-13,exterior,baja,poco,principiante,frutal,si,si,mini,no,bajo,frio,Menta,Maceta Mini Eco
-14,balcón,alta,poco,intermedio,decorativa,no,no,colgante,si,medio,calido,Begonia,Maceta Colgante Eco
-15,terraza,media,poco,avanzado,frutal,no,no,expandible,si,bajo,templado,Cactus,Maceta Mini Eco
-16,exterior,media,mucho,avanzado,colgante,si,si,mini,si,bajo,templado,Aloe Vera,Maceta Mini Eco
-17,balcón,alta,mucho,avanzado,decorativa,si,si,colgante,si,bajo,tropical,Cactus,Maceta Mini Eco
-18,terraza,baja,mucho,principiante,verde,si,no,mini,no,alto,tropical,Hiedra Inglesa,Maceta Colgante Eco
-19,exterior,media,moderado,principiante,decorativa,si,si,mini,si,medio,templado,Helecho de Boston,Maceta Colgante Eco
-20,terraza,media,mucho,intermedio,aromatica,si,si,expandible,no,alto,tropical,Aloe Vera,Maceta Mini Eco
-21,interior,baja,moderado,principiante,frutal,no,si,mini,si,medio,tropical,Cactus,Maceta Mini Eco
-22,balcón,alta,mucho,intermedio,verde,si,si,mini,no,bajo,calido,Albahaca,Maceta Mini Eco
-23,interior,media,poco,intermedio,frutal,no,si,colgante,si,bajo,tropical,Begonia,Maceta Colgante Eco
-24,balcón,media,moderado,intermedio,suculenta,no,si,expandible,no,bajo,templado,Aloe Vera,Maceta Mini Eco
-25,exterior,media,moderado,avanzado,suculenta,si,si,expandible,no,alto,tropical,Rosal,Maceta Expandible Eco
-26,balcón,baja,poco,principiante,colgante,no,si,expandible,si,bajo,calido,Peperomia,Maceta Mini Eco
-27,exterior,media,poco,intermedio,verde,no,no,colgante,si,medio,templado,Begonia,Maceta Colgante Eco
-28,terraza,media,mucho,principiante,frutal,si,no,colgante,no,bajo,calido,Helecho de Boston,Maceta Colgante Eco
-29,exterior,alta,poco,intermedio,flores,no,si,expandible,no,bajo,calido,Zamioculca,Maceta Mini Eco
-30,balcón,alta,poco,principiante,aromatica,si,no,mini,no,bajo,templado,Albahaca,Maceta Mini Eco
-31,interior,alta,moderado,intermedio,aromatica,si,no,mini,si,medio,templado,Begonia,Maceta Colgante Eco
-32,exterior,media,moderado,intermedio,aromatica,si,no,expandible,si,medio,calido,Rosal,Maceta Expandible Eco
-33,exterior,media,moderado,intermedio,suculenta,si,no,expandible,no,medio,frio,Albahaca,Maceta Mini Eco
-34,balcón,baja,poco,avanzado,aromatica,no,si,colgante,no,medio,frio,Zamioculca,Maceta Mini Eco
-35,interior,baja,poco,principiante,colgante,si,si,colgante,no,bajo,tropical,Menta,Maceta Mini Eco
-36,interior,baja,mucho,principiante,verde,no,si,expandible,si,bajo,tropical,Helecho de Boston,Maceta Colgante Eco
-37,terraza,alta,mucho,principiante,colgante,si,si,mini,si,alto,calido,Calathea,Maceta Expandible Eco
-38,interior,baja,poco,avanzado,flores,no,no,expandible,no,medio,calido,Rosal,Maceta Expandible Eco
-39,terraza,alta,mucho,principiante,flores,si,si,mini,si,alto,frio,Areca Palm,Maceta Expandible Eco
-40,balcón,alta,mucho,intermedio,flores,si,si,mini,si,medio,templado,Hierbabuena,Maceta Mini Eco
-41,exterior,baja,moderado,intermedio,verde,no,no,colgante,si,alto,frio,Anturio,Maceta Expandible Eco
-42,balcón,baja,moderado,intermedio,aromatica,no,si,mini,si,bajo,tropical,Cactus,Maceta Mini Eco
-43,terraza,alta,moderado,avanzado,frutal,no,si,mini,no,bajo,templado,Peperomia,Maceta Mini Eco
-44,exterior,media,moderado,intermedio,frutal,si,si,mini,si,alto,calido,Lavanda,Maceta Expandible Eco
-45,interior,baja,moderado,avanzado,decorativa,no,si,colgante,no,medio,calido,Helecho de Boston,Maceta Colgante Eco
-46,interior,baja,mucho,intermedio,colgante,si,no,colgante,si,alto,templado,Cactus,Maceta Mini Eco
-47,interior,baja,poco,avanzado,frutal,no,no,colgante,no,alto,calido,Petunia,Maceta Colgante Eco
-48,balcón,media,mucho,intermedio,colgante,si,si,mini,no,bajo,tropical,Zamioculca,Maceta Mini Eco
-49,balcón,media,moderado,avanzado,colgante,no,no,colgante,si,bajo,templado,Begonia,Maceta Colgante Eco
-50,exterior,media,mucho,principiante,aromatica,no,no,colgante,no,medio,calido,Orquídea Phalaenopsis,Maceta Expandible Eco
-51,balcón,media,mucho,avanzado,suculenta,no,no,colgante,no,alto,templado,Hiedra Inglesa,Maceta Colgante Eco
-52,terraza,alta,moderado,avanzado,aromatica,no,si,mini,si,bajo,tropical,Rosal,Maceta Expandible Eco
-53,terraza,baja,moderado,avanzado,flores,no,si,colgante,no,bajo,templado,Albahaca,Maceta Mini Eco
-54,interior,media,mucho,avanzado,frutal,no,si,mini,si,alto,templado,Geranio,Maceta Expandible Eco
-55,terraza,media,moderado,avanzado,aromatica,no,no,mini,no,medio,tropical,Peperomia,Maceta Mini Eco
-56,terraza,baja,mucho,intermedio,flores,no,si,expandible,no,medio,calido,Ficus Lyrata,Maceta Expandible Eco
-57,interior,baja,mucho,intermedio,frutal,si,si,mini,no,bajo,templado,Albahaca,Maceta Mini Eco
-58,balcón,baja,moderado,principiante,decorativa,no,si,colgante,no,medio,tropical,Ficus Lyrata,Maceta Expandible Eco
-59,balcón,media,poco,avanzado,flores,no,no,expandible,no,medio,calido,Suculenta,Maceta Mini Eco
-60,terraza,media,poco,intermedio,colgante,no,no,mini,no,bajo,frio,Jazmín,Maceta Colgante Eco
-61,balcón,media,moderado,avanzado,aromatica,si,si,colgante,si,bajo,templado,Menta,Maceta Mini Eco
-62,interior,media,poco,avanzado,flores,no,no,expandible,no,medio,calido,Begonia,Maceta Colgante Eco
-63,balcón,media,poco,avanzado,verde,no,si,expandible,no,alto,tropical,Jazmín,Maceta Colgante Eco
-64,terraza,alta,mucho,intermedio,verde,si,no,mini,si,medio,calido,Areca Palm,Maceta Expandible Eco
-65,exterior,alta,mucho,principiante,suculenta,no,si,colgante,no,medio,calido,Peperomia,Maceta Mini Eco
-66,terraza,media,poco,principiante,colgante,si,si,colgante,no,medio,tropical,Cactus,Maceta Mini Eco
-67,balcón,baja,poco,intermedio,decorativa,si,si,colgante,si,bajo,frio,Girasol,Maceta Expandible Eco
-68,terraza,alta,moderado,principiante,flores,no,si,expandible,no,alto,tropical,Suculenta,Maceta Mini Eco
-69,terraza,baja,moderado,principiante,verde,no,si,expandible,si,medio,templado,Helecho de Boston,Maceta Colgante Eco
-70,interior,media,moderado,principiante,frutal,no,no,expandible,si,alto,frio,Hiedra Inglesa,Maceta Colgante Eco
-71,balcón,media,poco,principiante,decorativa,no,si,expandible,no,medio,frio,Aloe Vera,Maceta Mini Eco
-72,balcón,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Helecho de Boston,Maceta Colgante Eco
-73,exterior,media,moderado,intermedio,verde,no,si,expandible,no,medio,templado,Helecho de Boston,Maceta Colgante Eco
-74,interior,baja,mucho,intermedio,suculenta,no,no,colgante,no,medio,tropical,Ficus Lyrata,Maceta Expandible Eco
-75,interior,media,poco,intermedio,aromatica,si,si,expandible,si,medio,templado,Petunia,Maceta Colgante Eco
-76,terraza,alta,poco,avanzado,frutal,si,si,expandible,si,bajo,templado,Petunia,Maceta Colgante Eco
-77,balcón,alta,poco,principiante,frutal,no,si,colgante,si,bajo,templado,Lavanda,Maceta Expandible Eco
-78,exterior,media,poco,avanzado,decorativa,no,no,mini,si,alto,calido,Areca Palm,Maceta Expandible Eco
-79,balcón,alta,moderado,principiante,aromatica,si,si,colgante,no,alto,calido,Peperomia,Maceta Mini Eco
-80,terraza,baja,mucho,intermedio,colgante,si,si,mini,si,alto,calido,Areca Palm,Maceta Expandible Eco
-81,balcón,baja,moderado,principiante,frutal,no,no,mini,si,alto,frio,Zamioculca,Maceta Mini Eco
-82,balcón,alta,moderado,avanzado,colgante,no,si,expandible,no,bajo,tropical,Cactus,Maceta Mini Eco
-83,terraza,alta,mucho,principiante,flores,si,si,mini,si,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
-84,exterior,media,poco,principiante,flores,si,no,colgante,no,bajo,tropical,Cactus,Maceta Mini Eco
-85,balcón,media,mucho,principiante,suculenta,no,no,colgante,si,bajo,tropical,Calathea,Maceta Expandible Eco
-86,exterior,alta,poco,principiante,aromatica,si,no,expandible,no,bajo,templado,Areca Palm,Maceta Expandible Eco
-87,balcón,baja,poco,principiante,aromatica,no,si,expandible,si,bajo,frio,Peperomia,Maceta Mini Eco
-88,balcón,media,poco,avanzado,verde,no,no,colgante,no,medio,tropical,Geranio,Maceta Expandible Eco
-89,terraza,baja,mucho,avanzado,colgante,no,si,colgante,no,bajo,tropical,Begonia,Maceta Colgante Eco
-90,terraza,baja,mucho,principiante,flores,no,si,mini,no,medio,frio,Albahaca,Maceta Mini Eco
-91,terraza,baja,poco,principiante,suculenta,si,no,colgante,si,alto,tropical,Peperomia,Maceta Mini Eco
-92,interior,baja,moderado,principiante,aromatica,no,si,expandible,si,alto,calido,Hiedra Inglesa,Maceta Colgante Eco
-93,interior,media,mucho,intermedio,verde,si,no,mini,no,medio,templado,Pothos Dorado,Maceta Colgante Eco
-94,exterior,alta,poco,intermedio,verde,si,no,expandible,si,medio,tropical,Areca Palm,Maceta Expandible Eco
-95,terraza,alta,moderado,principiante,frutal,no,no,mini,no,bajo,templado,Zamioculca,Maceta Mini Eco
-96,terraza,media,poco,principiante,suculenta,si,no,mini,si,bajo,templado,Albahaca,Maceta Mini Eco
-97,interior,alta,poco,principiante,flores,si,no,expandible,si,alto,templado,Lavanda,Maceta Expandible Eco
-98,balcón,baja,moderado,avanzado,frutal,si,si,expandible,no,alto,templado,Hiedra Inglesa,Maceta Colgante Eco
-99,balcón,alta,moderado,intermedio,aromatica,si,si,colgante,si,medio,frio,Pothos Dorado,Maceta Colgante Eco
-100,exterior,baja,mucho,avanzado,frutal,si,no,colgante,si,medio,tropical,Aloe Vera,Maceta Mini Eco
-101,terraza,media,mucho,avanzado,verde,no,si,colgante,no,alto,tropical,Orquídea Phalaenopsis,Maceta Expandible Eco
-102,exterior,media,mucho,principiante,aromatica,no,si,expandible,si,alto,templado,Albahaca,Maceta Mini Eco
-103,interior,baja,mucho,intermedio,verde,si,no,expandible,no,alto,frio,Orquídea Phalaenopsis,Maceta Expandible Eco
-104,balcón,alta,moderado,intermedio,suculenta,si,si,colgante,no,medio,tropical,Menta,Maceta Mini Eco
-105,balcón,alta,poco,intermedio,frutal,si,si,colgante,no,bajo,calido,Orquídea Phalaenopsis,Maceta Expandible Eco
-106,exterior,baja,poco,avanzado,aromatica,no,si,expandible,si,alto,templado,Rosal,Maceta Expandible Eco
-107,interior,alta,poco,avanzado,decorativa,si,si,expandible,si,medio,templado,Cactus,Maceta Mini Eco
-108,terraza,baja,poco,principiante,frutal,no,si,colgante,no,medio,templado,Areca Palm,Maceta Expandible Eco
-109,exterior,baja,moderado,avanzado,decorativa,si,si,mini,si,alto,frio,Orquídea Phalaenopsis,Maceta Expandible Eco
-110,balcón,media,poco,intermedio,frutal,si,no,expandible,no,medio,templado,Helecho Nephrolepis,Maceta Colgante Eco
-111,interior,baja,poco,intermedio,suculenta,no,no,expandible,si,alto,frio,Areca Palm,Maceta Expandible Eco
-112,terraza,media,mucho,principiante,flores,si,si,colgante,si,medio,frio,Petunia,Maceta Colgante Eco
-113,interior,baja,poco,intermedio,frutal,si,no,mini,no,medio,tropical,Helecho Nephrolepis,Maceta Colgante Eco
-114,exterior,baja,mucho,principiante,verde,si,si,mini,no,bajo,tropical,Calathea,Maceta Expandible Eco
-115,interior,baja,mucho,principiante,aromatica,si,si,colgante,si,alto,calido,Hiedra Inglesa,Maceta Colgante Eco
-116,balcón,alta,mucho,avanzado,flores,si,no,colgante,si,medio,calido,Zamioculca,Maceta Mini Eco
-117,terraza,media,poco,avanzado,verde,no,no,expandible,si,bajo,tropical,Cactus,Maceta Mini Eco
-118,terraza,media,poco,principiante,flores,si,si,colgante,si,medio,calido,Jazmín,Maceta Colgante Eco
-119,exterior,media,poco,intermedio,verde,si,si,expandible,no,alto,frio,Rosal,Maceta Expandible Eco
-120,terraza,media,poco,avanzado,verde,si,si,expandible,si,medio,calido,Areca Palm,Maceta Expandible Eco
-121,exterior,baja,moderado,principiante,frutal,no,no,colgante,si,bajo,frio,Orquídea Phalaenopsis,Maceta Expandible Eco
-122,balcón,media,poco,intermedio,verde,no,si,mini,si,bajo,calido,Albahaca,Maceta Mini Eco
-123,exterior,baja,moderado,intermedio,colgante,no,no,expandible,no,bajo,frio,Geranio,Maceta Expandible Eco
-124,interior,media,mucho,intermedio,frutal,si,no,mini,no,medio,templado,Jazmín,Maceta Colgante Eco
-125,exterior,media,moderado,principiante,suculenta,no,no,mini,si,medio,frio,Zamioculca,Maceta Mini Eco
-126,balcón,baja,mucho,intermedio,decorativa,si,no,colgante,si,bajo,calido,Menta,Maceta Mini Eco
-127,exterior,alta,moderado,intermedio,verde,no,no,expandible,no,bajo,calido,Albahaca,Maceta Mini Eco
-128,exterior,media,mucho,principiante,decorativa,no,no,mini,no,medio,templado,Geranio,Maceta Expandible Eco
-129,exterior,baja,moderado,intermedio,colgante,si,si,expandible,si,medio,templado,Cactus,Maceta Mini Eco
-130,exterior,alta,poco,avanzado,suculenta,no,si,colgante,si,alto,frio,Hiedra Inglesa,Maceta Colgante Eco
-131,exterior,alta,mucho,principiante,frutal,no,no,mini,si,bajo,calido,Begonia,Maceta Colgante Eco
-132,terraza,alta,mucho,principiante,verde,si,no,expandible,no,alto,tropical,Aloe Vera,Maceta Mini Eco
-133,balcón,media,mucho,principiante,frutal,no,si,mini,no,medio,frio,Girasol,Maceta Expandible Eco
-134,exterior,media,poco,avanzado,flores,no,si,expandible,no,medio,calido,Jazmín,Maceta Colgante Eco
-135,interior,alta,poco,intermedio,colgante,no,si,mini,no,medio,calido,Areca Palm,Maceta Expandible Eco
-136,interior,alta,moderado,intermedio,aromatica,no,no,colgante,si,alto,tropical,Hiedra Inglesa,Maceta Colgante Eco
-137,exterior,media,moderado,intermedio,frutal,no,no,expandible,si,bajo,calido,Aloe Vera,Maceta Mini Eco
-138,terraza,baja,moderado,avanzado,decorativa,no,no,colgante,no,medio,templado,Menta,Maceta Mini Eco
-139,terraza,baja,poco,avanzado,aromatica,no,si,colgante,no,bajo,templado,Calathea,Maceta Expandible Eco
-140,interior,baja,mucho,intermedio,suculenta,si,si,mini,no,alto,templado,Zamioculca,Maceta Mini Eco
-141,exterior,media,moderado,avanzado,colgante,si,si,mini,si,medio,tropical,Albahaca,Maceta Mini Eco
-142,exterior,media,mucho,intermedio,colgante,no,no,colgante,no,bajo,frio,Albahaca,Maceta Mini Eco
-143,exterior,media,moderado,intermedio,flores,si,no,expandible,si,medio,frio,Aloe Vera,Maceta Mini Eco
-144,exterior,alta,moderado,principiante,colgante,no,si,colgante,si,medio,calido,Anturio,Maceta Expandible Eco
-145,exterior,media,poco,principiante,suculenta,no,no,colgante,si,bajo,templado,Albahaca,Maceta Mini Eco
-146,exterior,alta,poco,intermedio,verde,si,si,expandible,si,medio,calido,Zamioculca,Maceta Mini Eco
-147,terraza,baja,moderado,avanzado,flores,no,no,colgante,no,medio,tropical,Sansevieria (Lengua de suegra),Maceta Mini Eco
-148,interior,media,mucho,intermedio,flores,si,si,colgante,si,bajo,tropical,Hierbabuena,Maceta Mini Eco
-149,balcón,alta,mucho,principiante,frutal,si,si,expandible,no,alto,frio,Anturio,Maceta Expandible Eco
-150,interior,baja,poco,principiante,flores,no,no,expandible,no,medio,tropical,Girasol,Maceta Expandible Eco
+﻿id,espacio,luz,tiempo_semanal,experiencia,preferencia_tipo,mascotas,bajo_mantenimiento,pref_maceta,riego_auto,presupuesto,clima,label_planta,label_maceta
+1,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,calido,Sansevieria (Lengua de suegra),Maceta Mini Eco
+2,grande,media,mucho,avanzado,flores,si,no,expandible,no,medio,tropical,Orquídea Phalaenopsis,Maceta Expandible Eco
+3,pequeño,baja,poco,principiante,colgante,no,si,colgante,si,bajo,templado,Pothos Dorado,Maceta Colgante Eco
+4,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,calido,Aloe Vera,Maceta Mini Eco
+5,mediano,alta,mucho,principiante,aromatica,si,no,expandible,si,medio,calido,Albahaca,Maceta Expandible Eco
+6,pequeño,media,moderado,principiante,aromatica,si,si,mini,no,bajo,frio,Menta,Maceta Mini Eco
+7,grande,alta,poco,intermedio,flores,si,si,expandible,no,medio,frio,Lavanda,Maceta Expandible Eco
+8,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,templado,Zamioculca,Maceta Mini Eco
+9,mediano,media,poco,principiante,decorativa,si,si,mini,no,bajo,tropical,Peperomia,Maceta Mini Eco
+10,grande,alta,mucho,avanzado,flores,no,no,expandible,si,alto,frio,Rosal,Maceta Expandible Eco
+11,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,calido,Begonia,Maceta Expandible Eco
+12,mediano,baja,moderado,intermedio,colgante,no,si,colgante,si,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+13,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+14,pequeño,media,poco,principiante,aromatica,si,si,mini,si,bajo,templado,Hierbabuena,Maceta Mini Eco
+15,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Jazmín,Maceta Expandible Eco
+16,pequeño,alta,moderado,principiante,frutal,si,no,mini,no,medio,calido,Girasol,Maceta Mini Eco
+17,grande,baja,media,avanzado,decorativa,si,no,expandible,no,alto,tropical,Calathea,Maceta Expandible Eco
+18,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,calido,Ficus Lyrata,Maceta Expandible Eco
+19,grande,media,mucho,avanzado,flores,no,no,expandible,si,alto,tropical,Anturio,Maceta Expandible Eco
+20,mediano,alta,moderado,intermedio,flores,no,si,expandible,no,medio,calido,Geranio,Maceta Expandible Eco
+21,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,templado,Helecho Nephrolepis,Maceta Colgante Eco
+22,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,templado,Suculenta Mix,Maceta Mini Eco
+23,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+24,pequeño,baja,poco,principiante,colgante,no,si,colgante,no,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+25,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,tropical,Helecho de Boston,Maceta Colgante Eco
+26,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,calido,Aloe Vera,Maceta Mini Eco
+27,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,no,medio,templado,Albahaca,Maceta Expandible Eco
+28,pequeño,media,moderado,principiante,aromatica,si,si,mini,si,bajo,frio,Menta,Maceta Mini Eco
+29,grande,alta,poco,intermedio,flores,si,si,expandible,no,medio,templado,Lavanda,Maceta Expandible Eco
+30,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,calido,Zamioculca,Maceta Mini Eco
+31,mediano,media,poco,principiante,decorativa,si,si,mini,si,bajo,calido,Peperomia,Maceta Mini Eco
+32,grande,alta,mucho,avanzado,flores,no,no,expandible,si,alto,templado,Rosal,Maceta Expandible Eco
+33,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,tropical,Begonia,Maceta Expandible Eco
+34,mediano,baja,moderado,intermedio,colgante,no,si,colgante,si,medio,templado,Hiedra Inglesa,Maceta Colgante Eco
+35,grande,media,mucho,intermedio,verde,si,no,expandible,si,alto,tropical,Areca Palm,Maceta Expandible Eco
+36,pequeño,media,poco,principiante,aromatica,si,si,mini,no,bajo,calido,Hierbabuena,Maceta Mini Eco
+37,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,calido,Jazmín,Maceta Expandible Eco
+38,pequeño,alta,moderado,principiante,frutal,si,no,mini,si,medio,tropical,Girasol,Maceta Mini Eco
+39,grande,baja,mucho,avanzado,decorativa,si,no,expandible,no,alto,tropical,Calathea,Maceta Expandible Eco
+40,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,calido,Ficus Lyrata,Maceta Expandible Eco
+41,grande,media,mucho,avanzado,flores,no,no,expandible,si,alto,tropical,Anturio,Maceta Expandible Eco
+42,mediano,alta,moderado,intermedio,flores,no,si,expandible,no,medio,templado,Geranio,Maceta Expandible Eco
+43,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,frio,Helecho Nephrolepis,Maceta Colgante Eco
+44,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,calido,Suculenta Mix,Maceta Mini Eco
+45,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,templado,Sansevieria (Lengua de suegra),Maceta Mini Eco
+46,pequeño,baja,poco,principiante,colgante,no,si,colgante,si,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+47,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,templado,Helecho de Boston,Maceta Colgante Eco
+48,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,frio,Aloe Vera,Maceta Mini Eco
+49,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,si,medio,calido,Albahaca,Maceta Expandible Eco
+50,pequeño,media,moderado,principiante,aromatica,si,si,mini,no,bajo,templado,Menta,Maceta Mini Eco
+51,grande,alta,poco,intermedio,flores,si,si,expandible,si,medio,frio,Lavanda,Maceta Expandible Eco
+52,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,calido,Zamioculca,Maceta Mini Eco
+53,mediano,media,poco,principiante,decorativa,si,si,mini,no,bajo,tropical,Peperomia,Maceta Mini Eco
+54,grande,alta,mucho,avanzado,flores,no,no,expandible,no,alto,calido,Rosal,Maceta Expandible Eco
+55,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Begonia,Maceta Expandible Eco
+56,mediano,baja,moderado,intermedio,colgante,no,si,colgante,no,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+57,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+58,pequeño,media,poco,principiante,aromatica,si,si,mini,si,bajo,templado,Hierbabuena,Maceta Mini Eco
+59,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,tropical,Jazmín,Maceta Expandible Eco
+60,pequeño,alta,moderado,principiante,frutal,si,no,mini,si,medio,templado,Girasol,Maceta Mini Eco
+61,grande,baja,mucho,avanzado,decorativa,si,no,expandible,si,alto,calido,Calathea,Maceta Expandible Eco
+62,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,tropical,Ficus Lyrata,Maceta Expandible Eco
+63,grande,media,mucho,avanzado,flores,no,no,expandible,no,alto,frio,Anturio,Maceta Expandible Eco
+64,mediano,alta,moderado,intermedio,flores,no,si,expandible,si,medio,calido,Geranio,Maceta Expandible Eco
+65,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,templado,Helecho Nephrolepis,Maceta Colgante Eco
+66,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,templado,Suculenta Mix,Maceta Mini Eco
+67,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+68,pequeño,baja,poco,principiante,colgante,no,si,colgante,no,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+69,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,calido,Helecho de Boston,Maceta Colgante Eco
+70,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,calido,Aloe Vera,Maceta Mini Eco
+71,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,si,medio,templado,Albahaca,Maceta Expandible Eco
+72,pequeño,media,moderado,principiante,aromatica,si,si,mini,no,bajo,frio,Menta,Maceta Mini Eco
+73,grande,alta,poco,intermedio,flores,si,si,expandible,no,medio,templado,Lavanda,Maceta Expandible Eco
+74,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,calido,Zamioculca,Maceta Mini Eco
+75,mediano,media,poco,principiante,decorativa,si,si,mini,no,bajo,tropical,Peperomia,Maceta Mini Eco
+76,grande,alta,mucho,avanzado,flores,no,no,expandible,si,alto,templado,Rosal,Maceta Expandible Eco
+77,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,calido,Begonia,Maceta Expandible Eco
+78,mediano,baja,moderado,intermedio,colgante,no,si,colgante,si,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+79,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+80,pequeño,media,poco,principiante,aromatica,si,si,mini,si,bajo,templado,Hierbabuena,Maceta Mini Eco
+81,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Jazmín,Maceta Expandible Eco
+82,pequeño,alta,moderado,principiante,frutal,si,no,mini,no,medio,tropical,Girasol,Maceta Mini Eco
+83,grande,baja,mucho,avanzado,decorativa,si,no,expandible,no,alto,calido,Calathea,Maceta Expandible Eco
+84,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+85,grande,media,mucho,avanzado,flores,no,no,expandible,si,alto,templado,Anturio,Maceta Expandible Eco
+86,mediano,alta,moderado,intermedio,flores,no,si,expandible,no,medio,tropical,Geranio,Maceta Expandible Eco
+87,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+88,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,calido,Suculenta Mix,Maceta Mini Eco
+89,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+90,pequeño,baja,poco,principiante,colgante,no,si,colgante,si,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+91,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,templado,Helecho de Boston,Maceta Colgante Eco
+92,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,templado,Aloe Vera,Maceta Mini Eco
+93,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,no,medio,calido,Albahaca,Maceta Expandible Eco
+94,pequeño,media,moderado,principiante,aromatica,si,si,mini,si,bajo,frio,Menta,Maceta Mini Eco
+95,grande,alta,poco,intermedio,flores,si,si,expandible,si,medio,calido,Lavanda,Maceta Expandible Eco
+96,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,calido,Zamioculca,Maceta Mini Eco
+97,mediano,media,poco,principiante,decorativa,si,si,mini,si,bajo,tropical,Peperomia,Maceta Mini Eco
+98,grande,alta,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Rosal,Maceta Expandible Eco
+99,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Begonia,Maceta Expandible Eco
+100,mediano,baja,moderado,intermedio,colgante,no,si,colgante,no,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+101,grande,media,mucho,intermedio,verde,si,no,expandible,si,alto,tropical,Areca Palm,Maceta Expandible Eco
+102,pequeño,media,poco,principiante,aromatica,si,si,mini,no,bajo,templado,Hierbabuena,Maceta Mini Eco
+103,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,tropical,Jazmín,Maceta Expandible Eco
+104,pequeño,alta,moderado,principiante,frutal,si,no,mini,si,medio,templado,Girasol,Maceta Mini Eco
+105,grande,baja,mucho,avanzado,decorativa,si,no,expandible,no,alto,calido,Calathea,Maceta Expandible Eco
+106,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+107,grande,media,mucho,avanzado,flores,no,no,expandible,si,alto,templado,Anturio,Maceta Expandible Eco
+108,mediano,alta,moderado,intermedio,flores,no,si,expandible,no,medio,tropical,Geranio,Maceta Expandible Eco
+109,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+110,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,calido,Suculenta Mix,Maceta Mini Eco
+111,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+112,pequeño,baja,poco,principiante,colgante,no,si,colgante,si,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+113,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,templado,Helecho de Boston,Maceta Colgante Eco
+114,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,templado,Aloe Vera,Maceta Mini Eco
+115,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,si,medio,calido,Albahaca,Maceta Expandible Eco
+116,pequeño,media,moderado,principiante,aromatica,si,si,mini,no,bajo,frio,Menta,Maceta Mini Eco
+117,grande,alta,poco,intermedio,flores,si,si,expandible,no,medio,calido,Lavanda,Maceta Expandible Eco
+118,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,calido,Zamioculca,Maceta Mini Eco
+119,mediano,media,poco,principiante,decorativa,si,si,mini,si,bajo,tropical,Peperomia,Maceta Mini Eco
+120,grande,alta,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Rosal,Maceta Expandible Eco
+121,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Begonia,Maceta Expandible Eco
+122,mediano,baja,moderado,intermedio,colgante,no,si,colgante,no,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+123,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+124,pequeño,media,poco,principiante,aromatica,si,si,mini,no,bajo,templado,Hierbabuena,Maceta Mini Eco
+125,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,tropical,Jazmín,Maceta Expandible Eco
+126,pequeño,alta,moderado,principiante,frutal,si,no,mini,si,medio,templado,Girasol,Maceta Mini Eco
+127,grande,baja,mucho,avanzado,decorativa,si,no,expandible,si,alto,calido,Calathea,Maceta Expandible Eco
+128,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+129,grande,media,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Anturio,Maceta Expandible Eco
+130,mediano,alta,moderado,intermedio,flores,no,si,expandible,si,medio,calido,Geranio,Maceta Expandible Eco
+131,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+132,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,calido,Suculenta Mix,Maceta Mini Eco
+133,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+134,pequeño,baja,poco,principiante,colgante,no,si,colgante,no,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+135,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,templado,Helecho de Boston,Maceta Colgante Eco
+136,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,templado,Aloe Vera,Maceta Mini Eco
+137,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,no,medio,calido,Albahaca,Maceta Expandible Eco
+138,pequeño,media,moderado,principiante,aromatica,si,si,mini,si,bajo,frio,Menta,Maceta Mini Eco
+139,grande,alta,poco,intermedio,flores,si,si,expandible,no,medio,calido,Lavanda,Maceta Expandible Eco
+140,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,calido,Zamioculca,Maceta Mini Eco
+141,mediano,media,poco,principiante,decorativa,si,si,mini,si,bajo,tropical,Peperomia,Maceta Mini Eco
+142,grande,alta,mucho,avanzado,flores,no,no,expandible,si,alto,templado,Rosal,Maceta Expandible Eco
+143,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,calido,Begonia,Maceta Expandible Eco
+144,mediano,baja,moderado,intermedio,colgante,no,si,colgante,si,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+145,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+146,pequeño,media,poco,principiante,aromatica,si,si,mini,no,bajo,templado,Hierbabuena,Maceta Mini Eco
+147,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Jazmín,Maceta Expandible Eco
+148,pequeño,alta,moderado,principiante,frutal,si,no,mini,no,medio,tropical,Girasol,Maceta Mini Eco
+149,grande,baja,mucho,avanzado,decorativa,si,no,expandible,no,alto,calido,Calathea,Maceta Expandible Eco
+150,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+151,grande,media,mucho,avanzado,flores,no,no,expandible,si,alto,templado,Anturio,Maceta Expandible Eco
+152,mediano,alta,moderado,intermedio,flores,no,si,expandible,no,medio,tropical,Geranio,Maceta Expandible Eco
+153,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+154,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,calido,Suculenta Mix,Maceta Mini Eco
+155,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+156,pequeño,baja,poco,principiante,colgante,no,si,colgante,si,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+157,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,templado,Helecho de Boston,Maceta Colgante Eco
+158,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,templado,Aloe Vera,Maceta Mini Eco
+159,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,si,medio,calido,Albahaca,Maceta Expandible Eco
+160,pequeño,media,moderado,principiante,aromatica,si,si,mini,no,bajo,frio,Menta,Maceta Mini Eco
+161,grande,alta,poco,intermedio,flores,si,si,expandible,si,medio,calido,Lavanda,Maceta Expandible Eco
+162,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,calido,Zamioculca,Maceta Mini Eco
+163,mediano,media,poco,principiante,decorativa,si,si,mini,no,bajo,tropical,Peperomia,Maceta Mini Eco
+164,grande,alta,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Rosal,Maceta Expandible Eco
+165,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Begonia,Maceta Expandible Eco
+166,mediano,baja,moderado,intermedio,colgante,no,si,colgante,no,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+167,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+168,pequeño,media,poco,principiante,aromatica,si,si,mini,si,bajo,templado,Hierbabuena,Maceta Mini Eco
+169,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,tropical,Jazmín,Maceta Expandible Eco
+170,pequeño,alta,moderado,principiante,frutal,si,no,mini,si,medio,templado,Girasol,Maceta Mini Eco
+171,grande,baja,mucho,avanzado,decorativa,si,no,expandible,si,alto,calido,Calathea,Maceta Expandible Eco
+172,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+173,grande,media,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Anturio,Maceta Expandible Eco
+174,mediano,alta,moderado,intermedio,flores,no,si,expandible,si,medio,calido,Geranio,Maceta Expandible Eco
+175,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+176,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,calido,Suculenta Mix,Maceta Mini Eco
+177,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+178,pequeño,baja,poco,principiante,colgante,no,si,colgante,no,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+179,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,templado,Helecho de Boston,Maceta Colgante Eco
+180,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,templado,Aloe Vera,Maceta Mini Eco
+181,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,no,medio,calido,Albahaca,Maceta Expandible Eco
+182,pequeño,media,moderado,principiante,aromatica,si,si,mini,si,bajo,frio,Menta,Maceta Mini Eco
+183,grande,alta,poco,intermedio,flores,si,si,expandible,no,medio,tropical,Lavanda,Maceta Expandible Eco
+184,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,calido,Zamioculca,Maceta Mini Eco
+185,mediano,media,poco,principiante,decorativa,si,si,mini,si,bajo,calido,Peperomia,Maceta Mini Eco
+186,grande,alta,mucho,avanzado,flores,no,no,expandible,si,alto,frio,Rosal,Maceta Expandible Eco
+187,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,calido,Begonia,Maceta Expandible Eco
+188,mediano,baja,moderado,intermedio,colgante,no,si,colgante,si,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+189,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+190,pequeño,media,poco,principiante,aromatica,si,si,mini,no,bajo,templado,Hierbabuena,Maceta Mini Eco
+191,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Jazmín,Maceta Expandible Eco
+192,pequeño,alta,moderado,principiante,frutal,si,no,mini,no,medio,tropical,Girasol,Maceta Mini Eco
+193,grande,baja,mucho,avanzado,decorativa,si,no,expandible,no,alto,calido,Calathea,Maceta Expandible Eco
+194,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+195,grande,media,mucho,avanzado,flores,no,no,expandible,si,alto,templado,Anturio,Maceta Expandible Eco
+196,mediano,alta,moderado,intermedio,flores,no,si,expandible,no,medio,tropical,Geranio,Maceta Expandible Eco
+197,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+198,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,calido,Suculenta Mix,Maceta Mini Eco
+199,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+200,pequeño,baja,poco,principiante,colgante,no,si,colgante,si,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+201,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,templado,Helecho de Boston,Maceta Colgante Eco
+202,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,templado,Aloe Vera,Maceta Mini Eco
+203,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,si,medio,calido,Albahaca,Maceta Expandible Eco
+204,pequeño,media,moderado,principiante,aromatica,si,si,mini,no,bajo,frio,Menta,Maceta Mini Eco
+205,grande,alta,poco,intermedio,flores,si,si,expandible,no,medio,calido,Lavanda,Maceta Expandible Eco
+206,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,calido,Zamioculca,Maceta Mini Eco
+207,mediano,media,poco,principiante,decorativa,si,si,mini,si,bajo,tropical,Peperomia,Maceta Mini Eco
+208,grande,alta,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Rosal,Maceta Expandible Eco
+209,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Begonia,Maceta Expandible Eco
+210,mediano,baja,moderado,intermedio,colgante,no,si,colgante,no,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+211,grande,media,mucho,intermedio,verde,si,no,expandible,si,alto,tropical,Areca Palm,Maceta Expandible Eco
+212,pequeño,media,poco,principiante,aromatica,si,si,mini,no,bajo,templado,Hierbabuena,Maceta Mini Eco
+213,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,tropical,Jazmín,Maceta Expandible Eco
+214,pequeño,alta,moderado,principiante,frutal,si,no,mini,si,medio,templado,Girasol,Maceta Mini Eco
+215,grande,baja,mucho,avanzado,decorativa,si,no,expandible,no,alto,calido,Calathea,Maceta Expandible Eco
+216,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+217,grande,media,mucho,avanzado,flores,no,no,expandible,si,alto,templado,Anturio,Maceta Expandible Eco
+218,mediano,alta,moderado,intermedio,flores,no,si,expandible,no,medio,tropical,Geranio,Maceta Expandible Eco
+219,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+220,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,calido,Suculenta Mix,Maceta Mini Eco
+221,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+222,pequeño,baja,poco,principiante,colgante,no,si,colgante,si,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+223,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,templado,Helecho de Boston,Maceta Colgante Eco
+224,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,templado,Aloe Vera,Maceta Mini Eco
+225,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,no,medio,calido,Albahaca,Maceta Expandible Eco
+226,pequeño,media,moderado,principiante,aromatica,si,si,mini,si,bajo,frio,Menta,Maceta Mini Eco
+227,grande,alta,poco,intermedio,flores,si,si,expandible,si,medio,calido,Lavanda,Maceta Expandible Eco
+228,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,calido,Zamioculca,Maceta Mini Eco
+229,mediano,media,poco,principiante,decorativa,si,si,mini,no,bajo,tropical,Peperomia,Maceta Mini Eco
+230,grande,alta,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Rosal,Maceta Expandible Eco
+231,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Begonia,Maceta Expandible Eco
+232,mediano,baja,moderado,intermedio,colgante,no,si,colgante,no,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+233,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+234,pequeño,media,poco,principiante,aromatica,si,si,mini,si,bajo,templado,Hierbabuena,Maceta Mini Eco
+235,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,tropical,Jazmín,Maceta Expandible Eco
+236,pequeño,alta,moderado,principiante,frutal,si,no,mini,no,medio,tropical,Girasol,Maceta Mini Eco
+237,grande,baja,mucho,avanzado,decorativa,si,no,expandible,si,alto,calido,Calathea,Maceta Expandible Eco
+238,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+239,grande,media,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Anturio,Maceta Expandible Eco
+240,mediano,alta,moderado,intermedio,flores,no,si,expandible,si,medio,calido,Geranio,Maceta Expandible Eco
+241,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+242,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,calido,Suculenta Mix,Maceta Mini Eco
+243,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+244,pequeño,baja,poco,principiante,colgante,no,si,colgante,no,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+245,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,templado,Helecho de Boston,Maceta Colgante Eco
+246,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,templado,Aloe Vera,Maceta Mini Eco
+247,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,si,medio,calido,Albahaca,Maceta Expandible Eco
+248,pequeño,media,moderado,principiante,aromatica,si,si,mini,no,bajo,frio,Menta,Maceta Mini Eco
+249,grande,alta,poco,intermedio,flores,si,si,expandible,no,medio,calido,Lavanda,Maceta Expandible Eco
+250,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,calido,Zamioculca,Maceta Mini Eco
+251,mediano,media,poco,principiante,decorativa,si,si,mini,si,bajo,tropical,Peperomia,Maceta Mini Eco
+252,grande,alta,mucho,avanzado,flores,no,no,expandible,si,alto,frio,Rosal,Maceta Expandible Eco
+253,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,calido,Begonia,Maceta Expandible Eco
+254,mediano,baja,moderado,intermedio,colgante,no,si,colgante,si,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+255,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+256,pequeño,media,poco,principiante,aromatica,si,si,mini,no,bajo,templado,Hierbabuena,Maceta Mini Eco
+257,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Jazmín,Maceta Expandible Eco
+258,pequeño,alta,moderado,principiante,frutal,si,no,mini,si,medio,templado,Girasol,Maceta Mini Eco
+259,grande,baja,mucho,avanzado,decorativa,si,no,expandible,no,alto,calido,Calathea,Maceta Expandible Eco
+260,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+261,grande,media,mucho,avanzado,flores,no,no,expandible,si,alto,templado,Anturio,Maceta Expandible Eco
+262,mediano,alta,moderado,intermedio,flores,no,si,expandible,no,medio,tropical,Geranio,Maceta Expandible Eco
+263,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+264,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,calido,Suculenta Mix,Maceta Mini Eco
+265,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+266,pequeño,baja,poco,principiante,colgante,no,si,colgante,si,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+267,mediano,baja,mucho,intermedio,colgante,si,no,colgante,no,medio,templado,Helecho de Boston,Maceta Colgante Eco
+268,pequeño,alta,poco,principiante,suculenta,si,si,mini,si,bajo,templado,Aloe Vera,Maceta Mini Eco
+269,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,no,medio,calido,Albahaca,Maceta Expandible Eco
+270,pequeño,media,moderado,principiante,aromatica,si,si,mini,si,bajo,frio,Menta,Maceta Mini Eco
+271,grande,alta,poco,intermedio,flores,si,si,expandible,si,medio,calido,Lavanda,Maceta Expandible Eco
+272,pequeño,baja,poco,principiante,verde,no,si,mini,no,bajo,calido,Zamioculca,Maceta Mini Eco
+273,mediano,media,poco,principiante,decorativa,si,si,mini,no,bajo,tropical,Peperomia,Maceta Mini Eco
+274,grande,alta,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Rosal,Maceta Expandible Eco
+275,mediano,media,moderado,intermedio,flores,si,no,expandible,si,medio,calido,Begonia,Maceta Expandible Eco
+276,mediano,baja,moderado,intermedio,colgante,no,si,colgante,no,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+277,grande,media,mucho,intermedio,verde,si,no,expandible,si,alto,tropical,Areca Palm,Maceta Expandible Eco
+278,pequeño,media,poco,principiante,aromatica,si,si,mini,si,bajo,templado,Hierbabuena,Maceta Mini Eco
+279,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,tropical,Jazmín,Maceta Expandible Eco
+280,pequeño,alta,moderado,principiante,frutal,si,no,mini,no,medio,tropical,Girasol,Maceta Mini Eco
+281,grande,baja,mucho,avanzado,decorativa,si,no,expandible,no,alto,calido,Calathea,Maceta Expandible Eco
+282,grande,alta,moderado,intermedio,verde,no,no,expandible,si,medio,frio,Ficus Lyrata,Maceta Expandible Eco
+283,grande,media,mucho,avanzado,flores,no,no,expandible,no,alto,templado,Anturio,Maceta Expandible Eco
+284,mediano,alta,moderado,intermedio,flores,no,si,expandible,si,medio,calido,Geranio,Maceta Expandible Eco
+285,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,calido,Helecho Nephrolepis,Maceta Colgante Eco
+286,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,calido,Suculenta Mix,Maceta Mini Eco
+287,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,frio,Sansevieria (Lengua de suegra),Maceta Mini Eco
+288,pequeño,baja,poco,principiante,colgante,no,si,colgante,no,bajo,tropical,Pothos Dorado,Maceta Colgante Eco
+289,mediano,baja,mucho,intermedio,colgante,si,no,colgante,si,medio,templado,Helecho de Boston,Maceta Colgante Eco
+290,pequeño,alta,poco,principiante,suculenta,si,si,mini,no,bajo,templado,Aloe Vera,Maceta Mini Eco
+291,pequeño,alta,mucho,principiante,aromatica,si,no,expandible,si,medio,calido,Albahaca,Maceta Expandible Eco
+292,pequeño,media,moderado,principiante,aromatica,si,si,mini,no,bajo,frio,Menta,Maceta Mini Eco
+293,grande,alta,poco,intermedio,flores,si,si,expandible,no,medio,calido,Lavanda,Maceta Expandible Eco
+294,pequeño,baja,poco,principiante,verde,no,si,mini,si,bajo,calido,Zamioculca,Maceta Mini Eco
+295,mediano,media,poco,principiante,decorativa,si,si,mini,si,bajo,tropical,Peperomia,Maceta Mini Eco
+296,grande,alta,mucho,avanzado,flores,no,no,expandible,si,alto,frio,Rosal,Maceta Expandible Eco
+297,mediano,media,moderado,intermedio,flores,si,no,expandible,no,medio,calido,Begonia,Maceta Expandible Eco
+298,mediano,baja,moderado,intermedio,colgante,no,si,colgante,si,medio,frio,Hiedra Inglesa,Maceta Colgante Eco
+299,grande,media,mucho,intermedio,verde,si,no,expandible,no,alto,tropical,Areca Palm,Maceta Expandible Eco
+300,pequeño,media,poco,principiante,aromatica,si,si,mini,no,bajo,templado,Hierbabuena,Maceta Mini Eco
