@@ -16,7 +16,7 @@ import joblib
 # Permite usar PyMySQL como reemplazo de MySQLdb
 pymysql.install_as_MySQLdb()
 
-app = Flask(_name_)
+app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'Contraseña2025') 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'MYSQL_URL', 
