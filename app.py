@@ -11,24 +11,35 @@ import pandas as pd
 import joblib
 
 # ================= CONFIGURACIÓN INICIAL =================
+
+
+# Permite usar PyMySQL como reemplazo de MySQLdb
 pymysql.install_as_MySQLdb()
+
 app = Flask(__name__)
 
-# Configuración para producción (Render/Railway)
+# 🔐 Clave secreta
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'Contraseña2025')
 
-# Configuración de base de datos para producción
+# 🌐 Configuración de base de datos
 database_url = os.environ.get('DATABASE_URL')
-if database_url:
-    # Para PostgreSQL en Render/Railway (reemplaza mysql por postgresql)
-    if database_url.startswith('postgres://'):
-        database_url = database_url.replace('postgres://', 'postgresql://', 1)
-    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
-else:
-    # Base de datos local para desarrollo
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/ecoa'
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+if database_url:
+    # ✅ Asegura compatibilidad con MySQL usando PyMySQL
+    if database_url.startswith("mysql://"):
+        database_url = database_url.replace("mysql://", "mysql+pymysql://", 1)
+    # ✅ Asegura compatibilidad con PostgreSQL (si cambiaras de DB en Render)
+    if database_url.startswith("postgres://"):
+        database_url = database_url.replace("postgres://", "postgresql://", 1)
+
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+else:
+    # 🧩 Configuración local (modo desarrollo)
+    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:@localhost/ecoa"
+
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+# Inicializa la base de datos
 db = SQLAlchemy(app)
 
 # ================= CARGA DE MODELOS ML =================
