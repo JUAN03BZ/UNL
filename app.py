@@ -13,22 +13,26 @@ import joblib
 # ================= CONFIGURACIÓN INICIAL =================
 
 
-# Permite usar PyMySQL como reemplazo de MySQLdb
-pymysql.install_as_MySQLdb()
 
+pymysql.install_as_MySQLdb()
 app = Flask(__name__)
 
-# Clave secreta (Render usará su propia variable si existe)
+# Configuración para producción (Render/Railway)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'Contraseña2025')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/ecoa'
 
-# ============================
-# USAR SQLITE EN LUGAR DE MYSQL
-# ============================
+# Configuración de base de datos para producción
+database_url = os.environ.get('DATABASE_URL')
+if database_url:
+    # Para PostgreSQL en Render/Railway (reemplaza mysql por postgresql)
+    if database_url.startswith('postgres://'):
+        database_url = database_url.replace('postgres://', 'postgresql://', 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+else:
+    # Base de datos local para desarrollo
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/ecoa'
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASE_DIR, 'ecoa.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 db = SQLAlchemy(app)
 
 # ================= CARGA DE MODELOS ML =================
@@ -848,7 +852,6 @@ def perfect_plant():
             'mascotas': request.form['mascotas'],
             'bajo_mantenimiento': request.form['bajo_mantenimiento'],
             'pref_maceta': request.form['pref_maceta'],
-            'riego_auto': request.form['riego_auto'],
             'presupuesto': request.form['presupuesto'],
             'clima': request.form['clima']
         }
